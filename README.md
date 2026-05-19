@@ -29,18 +29,11 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ### Scalability
 - [Scalability (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#scalability)
 - [Scalability](https://algomaster.io/learn/system-design/scalability)
-- [Availability](https://algomaster.io/learn/system-design/availability)
-- [Reliability](https://algomaster.io/learn/system-design/reliability)
-- [SPOF](https://algomaster.io/learn/system-design/single-point-of-failure-spof)
-- [Latency vs Throughput vs Bandwidth](https://algomaster.io/learn/system-design/latency-vs-throughput)
-- [Consistent Hashing](https://algomaster.io/learn/system-design/consistent-hashing)
-- [CAP Theorem](https://algomaster.io/learn/system-design/cap-theorem)
-- [Failover](https://www.druva.com/glossary/what-is-a-failover-definition-and-related-faqs)
-- [Fault Tolerance](https://www.cockroachlabs.com/blog/what-is-fault-tolerance/)
 - What is scalability?
 - Scalability vs Performance
 
 ### Availability
+- [Availability (AlgoMaster)](https://algomaster.io/learn/system-design/availability)
 - [Availability (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#availability)
 - What is availability?
 - [What Is High Availability](https://newsletter.systemdesign.one/p/what-is-high-availability)
@@ -51,10 +44,13 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - What are availability patterns?
 
 ### Reliability
+- [Reliability (AlgoMaster)](https://algomaster.io/learn/system-design/reliability)
+- [SPOF (AlgoMaster)](https://algomaster.io/learn/system-design/single-point-of-failure-spof)
 - What is reliability and why it matters?
 - SLAs, SLOs, and SLIs explained
 
 ### Fault tolerance
+- [Fault Tolerance (AlgoMaster)](https://www.cockroachlabs.com/blog/what-is-fault-tolerance/)
 - What is Fault tolerance?
 - Fault tolerance vs availability
 - Graceful degradation strategies
@@ -66,6 +62,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Eventual consistency in distributed systems
 
 ### CAP theorem
+- [CAP Theorem (AlgoMaster)](https://algomaster.io/learn/system-design/cap-theorem)
 - [CAP theorem (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#cap-theorem)
 - [PACELC Theorem (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#pacelc-theorem)
 - A word on CAP theorem.
@@ -91,6 +88,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - What is exponential backoff?
 
 ### Networking
+- [Latency vs Throughput vs Bandwidth (AlgoMaster)](https://algomaster.io/learn/system-design/latency-vs-throughput)
 - [IP (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#ip)
 - [OSI Model (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#osi-model)
 - [TCP and UDP (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#tcp-and-udp)
@@ -265,6 +263,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Replication lag and consistency
 
 ### Database Partitioning
+- [Consistent Hashing (AlgoMaster)](https://algomaster.io/learn/system-design/consistent-hashing)
 - [Sharding (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#sharding)
 - [Consistent Hashing (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#consistent-hashing)
 - What is database partitioning?
@@ -429,6 +428,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How Load Balancing Algorithms Work](https://newsletter.systemdesign.one/p/load-balancing-algorithms)
 
 ### Health Checks & Failover
+- [Failover (AlgoMaster)](https://www.druva.com/glossary/what-is-a-failover-definition-and-related-faqs)
 - Health check strategies
 - Active vs passive health checks
 - Failover and failback strategies
