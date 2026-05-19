@@ -27,6 +27,15 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Mobile System Design Concepts - Part 1, 2
 
 ### Scalability
+- [Scalability](https://algomaster.io/learn/system-design/scalability)
+- [Availability](https://algomaster.io/learn/system-design/availability)
+- [Reliability](https://algomaster.io/learn/system-design/reliability)
+- [SPOF](https://algomaster.io/learn/system-design/single-point-of-failure-spof)
+- [Latency vs Throughput vs Bandwidth](https://algomaster.io/learn/system-design/latency-vs-throughput)
+- [Consistent Hashing](https://algomaster.io/learn/system-design/consistent-hashing)
+- [CAP Theorem](https://algomaster.io/learn/system-design/cap-theorem)
+- [Failover](https://www.druva.com/glossary/what-is-a-failover-definition-and-related-faqs)
+- [Fault Tolerance](https://www.cockroachlabs.com/blog/what-is-fault-tolerance/)
 - What is scalability?
 - Scalability vs Performance
 
@@ -78,6 +87,14 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - What is exponential backoff?
 
 ### Networking
+- [OSI Model](https://algomaster.io/learn/system-design/osi)
+- [IP Addresses](https://algomaster.io/learn/system-design/ip-address)
+- [Domain Name System (DNS)](https://blog.algomaster.io/p/how-dns-actually-works)
+- [Proxy vs Reverse Proxy](https://blog.algomaster.io/p/proxy-vs-reverse-proxy-explained)
+- [HTTP/HTTPS](https://algomaster.io/learn/system-design/http-https)
+- [TCP vs UDP](https://algomaster.io/learn/system-design/tcp-vs-udp)
+- [Load Balancing](https://blog.algomaster.io/p/load-balancing-algorithms-explained-with-code)
+- [Checksums](https://algomaster.io/learn/system-design/checksums)
 - Latency vs. through-put vs. bandwidth.
 - Introduction to DNS (domain name system)
 - [How DNS Works](https://newsletter.systemdesign.one/p/what-is-a-dns-server-and-how-does-it-work)
@@ -133,6 +150,14 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Canary deployment
 
 ### API Design Patterns
+- [APIs](https://algomaster.io/learn/system-design/what-is-an-api)
+- [API Gateway](https://blog.algomaster.io/p/what-is-an-api-gateway)
+- [REST vs GraphQL](https://blog.algomaster.io/p/rest-vs-graphql)
+- [WebSockets](https://blog.algomaster.io/p/websockets)
+- [Webhooks](https://algomaster.io/learn/system-design/webhooks)
+- [Idempotency](https://algomaster.io/learn/system-design/idempotency)
+- [Rate limiting](https://blog.algomaster.io/p/rate-limiting-algorithms-explained-with-code)
+- [API Design](https://abdulrwahab.medium.com/api-architecture-best-practices-for-designing-rest-apis-bf907025f5f)
 - RESTful API design principles
 - GraphQL vs REST
 - API versioning strategies
@@ -149,6 +174,11 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Serialization Formats: Protocol Buffers (Protobuf), Apache Thrift, Apache Avro
 
 ### Additional Patterns
+- [Client-Server Architecture](https://algomaster.io/learn/system-design/client-server-architecture)
+- [Microservices Architecture](https://medium.com/hashmapinc/the-what-why-and-how-of-a-microservices-architecture-4179579423a9)
+- [Serverless Architecture](https://blog.algomaster.io/p/2edeb23b-cfa5-4b24-845e-3f6f7a39d162)
+- [Event-Driven Architecture](https://www.confluent.io/learn/event-driven-architecture/)
+- [Peer-to-Peer (P2P) Architecture](https://www.spiceworks.com/tech/networking/articles/what-is-peer-to-peer/)
 - [Actor Model](https://newsletter.systemdesign.one/p/actor-model)
 - [Cell Based Architecture](https://newsletter.systemdesign.one/p/cell-based-architecture)
 - [How Sidecar Pattern Works](https://newsletter.systemdesign.one/p/sidecar-pattern)
@@ -171,6 +201,15 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How Databases Keep Passwords Securely](https://newsletter.systemdesign.one/p/how-to-store-passwords-in-database)
 
 ### Database Fundamentals
+- [ACID Transactions](https://algomaster.io/learn/system-design/acid-transactions)
+- [SQL vs NoSQL](https://algomaster.io/learn/system-design/sql-vs-nosql)
+- [Database Indexes](https://algomaster.io/learn/system-design/indexing)
+- [Database Sharding](https://algomaster.io/learn/system-design/sharding)
+- [Data Replication](https://redis.com/blog/what-is-data-replication/)
+- [Database Scaling](https://blog.algomaster.io/p/system-design-how-to-scale-a-database)
+- [Databases Types](https://blog.algomaster.io/p/15-types-of-databases)
+- [Bloom Filters](https://algomaster.io/learn/system-design/bloom-filters)
+- [Database Architectures](https://www.mongodb.com/developer/products/mongodb/active-active-application-architectures/)
 - OLTP vs OLAP systems
 - Database normalization
 - Primary keys, foreign keys, and constraints
@@ -278,6 +317,9 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 8. Asynchronous Communication Patterns
 
 ### Message Queue Fundamentals
+- [Pub/Sub](https://algomaster.io/learn/system-design/pub-sub)
+- [Message Queues](https://algomaster.io/learn/system-design/message-queues)
+- [Change Data Capture (CDC)](https://algomaster.io/learn/system-design/change-data-capture-cdc)
 - What are message queues?
 - [How Message Queues Work](https://newsletter.systemdesign.one/p/what-is-a-message-queue)
 - Synchronous vs asynchronous communication
@@ -306,6 +348,11 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 9. Caching Patterns and Strategies
 
 ### Caching Fundamentals
+- [Caching 101](https://algomaster.io/learn/system-design/what-is-caching)
+- [Caching Strategies](https://algomaster.io/learn/system-design/caching-strategies)
+- [Cache Eviction Policies](https://blog.algomaster.io/p/7-cache-eviction-strategies)
+- [Distributed Caching](https://blog.algomaster.io/p/distributed-caching)
+- [Content Delivery Network (CDN)](https://algomaster.io/learn/system-design/content-delivery-network-cdn)
 - What is caching and why it matters?
 - Cache hit ratio and performance metrics
 - Cache invalidation strategies
@@ -362,6 +409,14 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 11. Advanced Distributed Systems
 
 ### Consensus Algorithms
+- [HeartBeats](https://blog.algomaster.io/p/heartbeats-in-distributed-systems)
+- [Service Discovery](https://blog.algomaster.io/p/service-discovery-in-distributed-systems)
+- [Consensus Algorithms](https://medium.com/@sourabhatta1819/consensus-in-distributed-system-ac79f8ba2b8c)
+- [Distributed Locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html)
+- [Gossip Protocol](http://highscalability.com/blog/2023/7/16/gossip-protocol-explained.html)
+- [Circuit Breaker](https://medium.com/geekculture/design-patterns-for-microservices-circuit-breaker-pattern-276249ffab33)
+- [Disaster Recovery](https://cloud.google.com/learn/what-is-disaster-recovery)
+- [Distributed Tracing](https://www.dynatrace.com/news/blog/what-is-distributed-tracing/)
 - What is consensus in distributed systems?
 - Raft consensus algorithm
 - Paxos algorithm explained
