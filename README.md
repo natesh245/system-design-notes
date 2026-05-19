@@ -1,5 +1,41 @@
 # Comprehensive System Design Notes
 
+## 🗺️ 3-Month Interview Preparation Roadmap
+
+Follow this 12-week structured curriculum using the resources linked below.
+
+### Month 1: Fundamentals & Databases
+* **Week 1: Core Fundamentals & Networking**
+  * Focus on: Scalability, Availability, Reliability, Fault Tolerance, CAP Theorem, and basic Networking (DNS, TCP/UDP, Latency vs Throughput).
+* **Week 2: Core Infrastructure Components**
+  * Focus on: Load Balancing, Reverse Proxies, CDNs, and API Gateways.
+* **Week 3: Database Engineering 101**
+  * Focus on: SQL vs NoSQL, ACID properties, Database Transactions, and Schema Design.
+* **Week 4: Database Scaling at Large**
+  * Focus on: Database Replication (Master-Slave/Master-Master), Partitioning (Sharding & Consistent Hashing), and Database Indexing.
+
+### Month 2: Architecture & Communication
+* **Week 5: System Architecture Patterns**
+  * Focus on: Monoliths vs Microservices, Event-Driven Architecture, CQRS, and Serverless architectures.
+* **Week 6: Caching Patterns & Strategies**
+  * Focus on: Caching concepts (Read-through, Write-through, Write-behind), Eviction Policies (LRU, LFU), and Distributed Caching systems.
+* **Week 7: Asynchronous Communication**
+  * Focus on: Message Brokers, Pub/Sub mechanisms, Event Sourcing, and Message Queues (Kafka, RabbitMQ).
+* **Week 8: API Design & Advanced Protocols**
+  * Focus on: REST vs GraphQL vs gRPC, WebSockets, Long Polling, and Webhooks.
+
+### Month 3: Advanced Systems, Security & Practice
+* **Week 9: Advanced Distributed Systems**
+  * Focus on: Consensus Algorithms (Paxos, Raft), Service Discovery, Distributed Locks, Rate Limiting, and Resilience Patterns (Circuit Breakers).
+* **Week 10: Infrastructure, Security & Observability**
+  * Focus on: Containerization (Docker, K8s), Authentication/Authorization (OAuth 2.0, SSO), SSL/mTLS, and the three pillars of Observability.
+* **Week 11: Trade-offs & Deep Dives**
+  * Focus on: System Design Trade-offs matrices, Probabilistic Data Structures (Bloom Filters), and reading classic Engineering White Papers.
+* **Week 12: Mock Interviews & Real-World Case Studies**
+  * Focus on: Interview Methodology, Back-of-the-envelope calculations, and practicing Mock Interviews (URL Shortener, Twitter, WhatsApp, Uber, Netflix).
+
+---
+
 
 
 ## 1. System Design Interview Methodology
