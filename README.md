@@ -893,7 +893,8 @@ Follow this 12-week structured curriculum using the resources linked below.
 
 ## 21. Additional Learning Resources
 ## 📇 Courses
-- [5-Hour System Design Course (Mukul Raina)](https://mukulraina.notion.site/May-11th-5-Hour-System-Design-Course-Complete-Foundations-for-Interviews-3549faa09e6e80168d15c3713517e4a3)
+- [May 11th: 5-Hour System Design Course (Mukul Raina)](https://mukulraina.notion.site/May-11th-5-Hour-System-Design-Course-Complete-Foundations-for-Interviews-3549faa09e6e80168d15c3713517e4a3)
+- [March 25th: 5-Hour System Design Course (Mukul Raina)](https://mukulraina.notion.site/March-25th-5-Hour-System-Design-Course-3399faa09e6e8076a80ee8b65f990317)
 - [System Design Fundamentals](https://algomaster.io/learn/system-design/course-introduction)
 - [System Design Interviews](https://algomaster.io/learn/system-design-interviews/introduction)
 
