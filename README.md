@@ -201,6 +201,22 @@ A complete guide to system design, combining concepts from [The System Design Ac
 
 ## 4. Database Engineering Fundamentals
 
+### Database Fundamentals
+- [Databases and DBMS (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#databases-and-dbms)
+- [Database Federation (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#database-federation)
+- [ACID Transactions](https://algomaster.io/learn/system-design/acid-transactions)
+- [SQL vs NoSQL](https://algomaster.io/learn/system-design/sql-vs-nosql)
+- [Database Indexes](https://algomaster.io/learn/system-design/indexing)
+- [Database Sharding](https://algomaster.io/learn/system-design/sharding)
+- [Data Replication](https://redis.com/blog/what-is-data-replication/)
+- [Database Scaling](https://blog.algomaster.io/p/system-design-how-to-scale-a-database)
+- [Databases Types](https://blog.algomaster.io/p/15-types-of-databases)
+- [Bloom Filters](https://algomaster.io/learn/system-design/bloom-filters)
+- [Database Architectures](https://www.mongodb.com/developer/products/mongodb/active-active-application-architectures/)
+- OLTP vs OLAP systems
+- Database normalization
+- Primary keys, foreign keys, and constraints
+
 ### ACID
 - [ACID and BASE consistency models (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#acid-and-base-consistency-models)
 - Atomicity.
@@ -218,21 +234,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Serialization vs. Repeatable Read
 - [How Databases Keep Passwords Securely](https://newsletter.systemdesign.one/p/how-to-store-passwords-in-database)
 
-### Database Fundamentals
-- [Databases and DBMS (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#databases-and-dbms)
-- [Database Federation (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#database-federation)
-- [ACID Transactions](https://algomaster.io/learn/system-design/acid-transactions)
-- [SQL vs NoSQL](https://algomaster.io/learn/system-design/sql-vs-nosql)
-- [Database Indexes](https://algomaster.io/learn/system-design/indexing)
-- [Database Sharding](https://algomaster.io/learn/system-design/sharding)
-- [Data Replication](https://redis.com/blog/what-is-data-replication/)
-- [Database Scaling](https://blog.algomaster.io/p/system-design-how-to-scale-a-database)
-- [Databases Types](https://blog.algomaster.io/p/15-types-of-databases)
-- [Bloom Filters](https://algomaster.io/learn/system-design/bloom-filters)
-- [Database Architectures](https://www.mongodb.com/developer/products/mongodb/active-active-application-architectures/)
-- OLTP vs OLAP systems
-- Database normalization
-- Primary keys, foreign keys, and constraints
+
 
 ## 5. Database Scaling Concepts
 
