@@ -27,6 +27,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Mobile System Design Concepts - Part 1, 2
 
 ### Scalability
+- [Scalability (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#scalability)
 - [Scalability](https://algomaster.io/learn/system-design/scalability)
 - [Availability](https://algomaster.io/learn/system-design/availability)
 - [Reliability](https://algomaster.io/learn/system-design/reliability)
@@ -40,6 +41,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Scalability vs Performance
 
 ### Availability
+- [Availability (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#availability)
 - What is availability?
 - [What Is High Availability](https://newsletter.systemdesign.one/p/what-is-high-availability)
 - How is availability measured?
@@ -64,6 +66,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Eventual consistency in distributed systems
 
 ### CAP theorem
+- [CAP theorem (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#cap-theorem)
+- [PACELC Theorem (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#pacelc-theorem)
 - A word on CAP theorem.
 - PACELC theorem explained
 
@@ -87,6 +91,9 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - What is exponential backoff?
 
 ### Networking
+- [IP (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#ip)
+- [OSI Model (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#osi-model)
+- [TCP and UDP (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#tcp-and-udp)
 - [OSI Model](https://algomaster.io/learn/system-design/osi)
 - [IP Addresses](https://algomaster.io/learn/system-design/ip-address)
 - [Domain Name System (DNS)](https://blog.algomaster.io/p/how-dns-actually-works)
@@ -104,6 +111,9 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How to Troubleshoot if You Can’t Access a Particular Website?](https://systemdesign.one/how-to-troubleshoot-if-you-cannot-access-a-website/)
 
 ### A basic intro to core components
+- [Load Balancing (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#load-balancing)
+- [Clustering (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#clustering)
+- [Proxy (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#proxy)
 - Introduction to CDN
 - Introduction to Load balancer
 - Introduction to Caching
@@ -113,6 +123,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Forward proxy vs Reverse proxy](https://newsletter.systemdesign.one/p/forward-proxy-vs-reverse-proxy)
 
 ### Service Discovery & Heartbeats
+- [Service Discovery (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#service-discovery)
 - What is service discovery?
 - [Service Discovery](https://systemdesign.one/what-is-service-discovery/)
 - How do heartbeats help detect failures?
@@ -126,6 +137,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 3. Architectural Patterns and Design Principles
 
 ### Monolithic vs Microservices
+- [Monoliths and Microservices (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#monoliths-and-microservices)
 - Monolithic architecture pros and cons
 - Introduction to microservices
 - When to choose microservices vs monolith
@@ -133,12 +145,16 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [1 Simple Technique to Scale Microservices Architecture](https://newsletter.systemdesign.one/p/how-to-scale-microservices)
 
 ### Event-Driven Architecture
+- [Event-Driven Architecture (EDA) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#event-driven-architecture-eda)
+- [Event Sourcing (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#event-sourcing)
+- [Command and Query Responsibility Segregation (CQRS) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#command-and-query-responsibility-segregation-cqrs)
 - What is event-driven architecture?
 - Event sourcing patterns
 - CQRS (Command Query Responsibility Segregation)
 - Pub/Sub messaging patterns
 
 ### Resilience Patterns
+- [Circuit breaker (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#circuit-breaker)
 - Circuit breaker pattern
 - Bulkhead pattern
 - Retry and timeout patterns
@@ -168,6 +184,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Must Know HTTP Headers](https://newsletter.systemdesign.one/p/http-headers)
 
 ### Advanced Communication Protocols
+- [REST, GraphQL, gRPC (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#rest-graphql-grpc)
+- [Long polling, WebSockets, Server-Sent Events (SSE) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#long-polling-websockets-server-sent-events-sse)
 - [How Do Websockets Work](https://newsletter.systemdesign.one/p/how-do-websockets-work)
 - [How Do Webhooks Work](https://newsletter.systemdesign.one/p/how-do-webhooks-work)
 - [How Remote Procedure Call Works](https://newsletter.systemdesign.one/p/how-rpc-works)
@@ -186,6 +204,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 4. Database Engineering Fundamentals
 
 ### ACID
+- [ACID and BASE consistency models (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#acid-and-base-consistency-models)
 - Atomicity.
 - Consistency.
 - Isolation.
@@ -193,6 +212,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Understanding ACID properties with a live example.
 
 ### Database Transactions
+- [Transactions (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#transactions)
 - What are database transactions?
 - Transaction isolation levels
 - Phantom Reads.
@@ -201,6 +221,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How Databases Keep Passwords Securely](https://newsletter.systemdesign.one/p/how-to-store-passwords-in-database)
 
 ### Database Fundamentals
+- [Databases and DBMS (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#databases-and-dbms)
+- [Database Federation (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#database-federation)
 - [ACID Transactions](https://algomaster.io/learn/system-design/acid-transactions)
 - [SQL vs NoSQL](https://algomaster.io/learn/system-design/sql-vs-nosql)
 - [Database Indexes](https://algomaster.io/learn/system-design/indexing)
@@ -217,6 +239,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 5. Database Scaling Concepts
 
 ### Database Indexing
+- [Indexes (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#indexes)
 - Indexing - data structure that powers your database.
 - How database indexing actually works internally?
 - B-tree and B+ tree indexes
@@ -235,12 +258,15 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Analyzing query execution plans
 
 ### Database Replication
+- [Database Replication (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#database-replication)
 - What is database replication?
 - Master-slave replication
 - Master-master replication
 - Replication lag and consistency
 
 ### Database Partitioning
+- [Sharding (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#sharding)
+- [Consistent Hashing (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#consistent-hashing)
 - What is database partitioning?
 - Horizontal partitioning (sharding)
 - Vertical partitioning
@@ -249,6 +275,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Consistent Hashing](https://systemdesign.one/consistent-hashing-explained/)
 
 ### Designing Database Schema
+- [Normalization and Denormalization (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#normalization-and-denormalization)
 - Database schema design principles
 - Choosing the right data types
 - Database migration strategies
@@ -283,12 +310,15 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 7. Data Storages (Databases)
 
 ### SQL Databases
+- [SQL databases (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#sql-databases)
 - Introduction to SQL databases
 - Popular SQL databases (MySQL, PostgreSQL, SQL Server)
 - SQL transactions and ACID compliance
 - When to choose SQL databases
 
 ### NoSQL Databases
+- [NoSQL databases (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#nosql-databases)
+- [SQL vs NoSQL databases (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#sql-vs-nosql-databases)
 - Introduction to NoSQL databases
 - Document databases (MongoDB, CouchDB)
 - Key-value stores (Redis, DynamoDB)
@@ -309,6 +339,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - ETL vs ELT pipelines
 
 ### Storage Systems
+- [Storage (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#storage)
 - Introduction to blob storage (S3, Azure Blob)
 - File storage systems
 - Object storage vs block storage
@@ -317,6 +348,10 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 8. Asynchronous Communication Patterns
 
 ### Message Queue Fundamentals
+- [Message Brokers (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#message-brokers)
+- [Message Queues (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#message-queues)
+- [Publish-Subscribe (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#publish-subscribe)
+- [Enterprise Service Bus (ESB) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#enterprise-service-bus-esb)
 - [Pub/Sub](https://algomaster.io/learn/system-design/pub-sub)
 - [Message Queues](https://algomaster.io/learn/system-design/message-queues)
 - [Change Data Capture (CDC)](https://algomaster.io/learn/system-design/change-data-capture-cdc)
@@ -400,6 +435,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Circuit breaker integration
 
 ### Advanced Traffic Management
+- [Rate Limiting (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#rate-limiting)
 - Sticky sessions and session affinity
 - Rate limiting and throttling
 - [Rate Limiting Strategies Explained](https://newsletter.systemdesign.one/p/rate-limiting)
@@ -423,6 +459,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Byzantine fault tolerance
 
 ### Distributed Transactions
+- [Distributed Transactions (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#distributed-transactions)
 - Two-phase commit (2PC) protocol
 - Three-phase commit (3PC) protocol
 - Saga pattern for long-running transactions
@@ -444,6 +481,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Distributed Systems Deep Dive](https://newsletter.systemdesign.one/p/distributed-systems)
 
 ## 12. Probabilistic & Advanced Data Structures
+- [Geohashing and Quadtrees (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#geohashing-and-quadtrees)
 - [Bloom Filter](https://systemdesign.one/bloom-filters-explained/)
 - [Quotient Filter](https://systemdesign.one/quotient-filter-explained/)
 - HyperLogLog (Unique counting at scale)
@@ -481,6 +519,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 14. Modern Infrastructure and DevOps
 
 ### Containerization
+- [Virtual Machines (VMs) and Containers (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#virtual-machines-vms-and-containers)
 - Docker fundamentals for system design
 - Container orchestration with Kubernetes
 - Microservices deployment patterns
@@ -501,6 +540,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Deployment Patterns](https://newsletter.systemdesign.one/p/deployment-patterns)
 
 ### Infrastructure as Code & Practices
+- [Disaster recovery (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#disaster-recovery)
 - Infrastructure automation principles
 - Configuration management
 - Auto-scaling and resource management
@@ -513,6 +553,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 15. Security
 
 ### Authentication & Authorization
+- [OAuth 2.0 and OpenID Connect (OIDC) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#oauth-20-and-openid-connect-oidc)
+- [Single Sign-On (SSO) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#single-sign-on-sso)
 - Authentication vs authorization
 - OAuth 2.0 and OpenID Connect
 - JWT tokens and session management
@@ -533,6 +575,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Security by design
 
 ### Common Security Threats
+- [SSL, TLS, mTLS (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#ssl-tls-mtls)
 - DDoS attacks and mitigation
 - SQL injection prevention
 - Cross-site scripting (XSS) prevention
@@ -542,6 +585,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 16. Monitoring and Observability
 
 ### Monitoring Fundamentals
+- [SLA, SLO, SLI (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#sla-slo-sli)
 - What is observability?
 - Metrics, logs, and traces (three pillars)
 - Monitoring vs observability
@@ -582,6 +626,11 @@ A complete guide to system design, combining concepts from [The System Design Ac
 
 ## 18. Real-World System Design Case Studies & Practice
 ### Mock Interviews
+- [URL Shortener (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#url-shortener)
+- [WhatsApp (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#whatsapp)
+- [Twitter (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#twitter)
+- [Netflix (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#netflix)
+- [Uber (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#uber)
 #### Easy Problems (YouTube)
 - [Design URL Shortener like TinyURL](https://algomaster.io/learn/system-design-interviews/design-url-shortener)
 - [Design Autocomplete for Search Engines](https://algomaster.io/learn/system-design-interviews/design-instagram)
@@ -772,77 +821,3 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Success in Tech](https://www.youtube.com/@SuccessinTech/videos)
 
 
-## 22. System Design Course (Karan Pratap Singh)
-A comprehensive open-source system design course.
-
-### Getting Started
-  - [What is system design?](https://github.com/karanpratapsingh/system-design#what-is-system-design)
-
-### Chapter I
-  - [IP](https://github.com/karanpratapsingh/system-design#ip)
-  - [OSI Model](https://github.com/karanpratapsingh/system-design#osi-model)
-  - [TCP and UDP](https://github.com/karanpratapsingh/system-design#tcp-and-udp)
-  - [Domain Name System (DNS)](https://github.com/karanpratapsingh/system-design#domain-name-system-dns)
-  - [Load Balancing](https://github.com/karanpratapsingh/system-design#load-balancing)
-  - [Clustering](https://github.com/karanpratapsingh/system-design#clustering)
-  - [Caching](https://github.com/karanpratapsingh/system-design#caching)
-  - [Content Delivery Network (CDN)](https://github.com/karanpratapsingh/system-design#content-delivery-network-cdn)
-  - [Proxy](https://github.com/karanpratapsingh/system-design#proxy)
-  - [Availability](https://github.com/karanpratapsingh/system-design#availability)
-  - [Scalability](https://github.com/karanpratapsingh/system-design#scalability)
-  - [Storage](https://github.com/karanpratapsingh/system-design#storage)
-
-### Chapter II
-  - [Databases and DBMS](https://github.com/karanpratapsingh/system-design#databases-and-dbms)
-  - [SQL databases](https://github.com/karanpratapsingh/system-design#sql-databases)
-  - [NoSQL databases](https://github.com/karanpratapsingh/system-design#nosql-databases)
-  - [SQL vs NoSQL databases](https://github.com/karanpratapsingh/system-design#sql-vs-nosql-databases)
-  - [Database Replication](https://github.com/karanpratapsingh/system-design#database-replication)
-  - [Indexes](https://github.com/karanpratapsingh/system-design#indexes)
-  - [Normalization and Denormalization](https://github.com/karanpratapsingh/system-design#normalization-and-denormalization)
-  - [ACID and BASE consistency models](https://github.com/karanpratapsingh/system-design#acid-and-base-consistency-models)
-  - [CAP theorem](https://github.com/karanpratapsingh/system-design#cap-theorem)
-  - [PACELC Theorem](https://github.com/karanpratapsingh/system-design#pacelc-theorem)
-  - [Transactions](https://github.com/karanpratapsingh/system-design#transactions)
-  - [Distributed Transactions](https://github.com/karanpratapsingh/system-design#distributed-transactions)
-  - [Sharding](https://github.com/karanpratapsingh/system-design#sharding)
-  - [Consistent Hashing](https://github.com/karanpratapsingh/system-design#consistent-hashing)
-  - [Database Federation](https://github.com/karanpratapsingh/system-design#database-federation)
-
-### Chapter III
-  - [N-tier architecture](https://github.com/karanpratapsingh/system-design#n-tier-architecture)
-  - [Message Brokers](https://github.com/karanpratapsingh/system-design#message-brokers)
-  - [Message Queues](https://github.com/karanpratapsingh/system-design#message-queues)
-  - [Publish-Subscribe](https://github.com/karanpratapsingh/system-design#publish-subscribe)
-  - [Enterprise Service Bus (ESB)](https://github.com/karanpratapsingh/system-design#enterprise-service-bus-esb)
-  - [Monoliths and Microservices](https://github.com/karanpratapsingh/system-design#monoliths-and-microservices)
-  - [Event-Driven Architecture (EDA)](https://github.com/karanpratapsingh/system-design#event-driven-architecture-eda)
-  - [Event Sourcing](https://github.com/karanpratapsingh/system-design#event-sourcing)
-  - [Command and Query Responsibility Segregation (CQRS)](https://github.com/karanpratapsingh/system-design#command-and-query-responsibility-segregation-cqrs)
-  - [API Gateway](https://github.com/karanpratapsingh/system-design#api-gateway)
-  - [REST, GraphQL, gRPC](https://github.com/karanpratapsingh/system-design#rest-graphql-grpc)
-  - [Long polling, WebSockets, Server-Sent Events (SSE)](https://github.com/karanpratapsingh/system-design#long-polling-websockets-server-sent-events-sse)
-
-### Chapter IV
-  - [Geohashing and Quadtrees](https://github.com/karanpratapsingh/system-design#geohashing-and-quadtrees)
-  - [Circuit breaker](https://github.com/karanpratapsingh/system-design#circuit-breaker)
-  - [Rate Limiting](https://github.com/karanpratapsingh/system-design#rate-limiting)
-  - [Service Discovery](https://github.com/karanpratapsingh/system-design#service-discovery)
-  - [SLA, SLO, SLI](https://github.com/karanpratapsingh/system-design#sla-slo-sli)
-  - [Disaster recovery](https://github.com/karanpratapsingh/system-design#disaster-recovery)
-  - [Virtual Machines (VMs) and Containers](https://github.com/karanpratapsingh/system-design#virtual-machines-vms-and-containers)
-  - [OAuth 2.0 and OpenID Connect (OIDC)](https://github.com/karanpratapsingh/system-design#oauth-20-and-openid-connect-oidc)
-  - [Single Sign-On (SSO)](https://github.com/karanpratapsingh/system-design#single-sign-on-sso)
-  - [SSL, TLS, mTLS](https://github.com/karanpratapsingh/system-design#ssl-tls-mtls)
-
-### Chapter V
-  - [System Design Interviews](https://github.com/karanpratapsingh/system-design#system-design-interviews)
-  - [URL Shortener](https://github.com/karanpratapsingh/system-design#url-shortener)
-  - [WhatsApp](https://github.com/karanpratapsingh/system-design#whatsapp)
-  - [Twitter](https://github.com/karanpratapsingh/system-design#twitter)
-  - [Netflix](https://github.com/karanpratapsingh/system-design#netflix)
-  - [Uber](https://github.com/karanpratapsingh/system-design#uber)
-
-### Appendix
-  - [Next Steps](https://github.com/karanpratapsingh/system-design#next-steps)
-  - [References](https://github.com/karanpratapsingh/system-design#references)
