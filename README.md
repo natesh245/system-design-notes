@@ -1,6 +1,6 @@
 # Comprehensive System Design Notes
 
-A complete guide to system design, combining concepts from [The System Design Academy](https://www.systemdesignacademy.com/) and [System Design One (systemdesign.one)](https://github.com/systemdesign42/system-design-academy).
+
 
 ## 1. System Design Interview Methodology
 - [System Design Interview Framework](https://newsletter.systemdesign.one/p/how-to-prepare-for-system-design-interview)
@@ -27,12 +27,15 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Mobile System Design Concepts - Part 1, 2
 
 ### Scalability
+- [Performance vs scalability (Donne Martin)](https://github.com/donnemartin/system-design-primer#performance-vs-scalability)
 - [Scalability (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#scalability)
 - [Scalability](https://algomaster.io/learn/system-design/scalability)
 - What is scalability?
 - Scalability vs Performance
 
 ### Availability
+- [Availability patterns (Donne Martin)](https://github.com/donnemartin/system-design-primer#availability-patterns)
+- [Availability in numbers (Donne Martin)](https://github.com/donnemartin/system-design-primer#availability-in-numbers)
 - [Availability (AlgoMaster)](https://algomaster.io/learn/system-design/availability)
 - [Availability (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#availability)
 - What is availability?
@@ -62,6 +65,9 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Eventual consistency in distributed systems
 
 ### CAP theorem
+- [Availability vs consistency (Donne Martin)](https://github.com/donnemartin/system-design-primer#availability-vs-consistency)
+- [CAP theorem (Donne Martin)](https://github.com/donnemartin/system-design-primer#cap-theorem)
+- [Consistency patterns (Donne Martin)](https://github.com/donnemartin/system-design-primer#consistency-patterns)
 - [CAP Theorem (AlgoMaster)](https://algomaster.io/learn/system-design/cap-theorem)
 - [CAP theorem (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#cap-theorem)
 - [PACELC Theorem (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#pacelc-theorem)
@@ -88,6 +94,10 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - What is exponential backoff?
 
 ### Networking
+- [Latency vs throughput (Donne Martin)](https://github.com/donnemartin/system-design-primer#latency-vs-throughput)
+- [Domain name system (Donne Martin)](https://github.com/donnemartin/system-design-primer#domain-name-system)
+- [Transmission control protocol (TCP) (Donne Martin)](https://github.com/donnemartin/system-design-primer#transmission-control-protocol-tcp)
+- [User datagram protocol (UDP) (Donne Martin)](https://github.com/donnemartin/system-design-primer#user-datagram-protocol-udp)
 - [Latency vs Throughput vs Bandwidth (AlgoMaster)](https://algomaster.io/learn/system-design/latency-vs-throughput)
 - [IP (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#ip)
 - [OSI Model (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#osi-model)
@@ -109,6 +119,9 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How to Troubleshoot if You Can’t Access a Particular Website?](https://systemdesign.one/how-to-troubleshoot-if-you-cannot-access-a-website/)
 
 ### A basic intro to core components
+- [Content delivery network (Donne Martin)](https://github.com/donnemartin/system-design-primer#content-delivery-network)
+- [Load balancer (Donne Martin)](https://github.com/donnemartin/system-design-primer#load-balancer)
+- [Reverse proxy (web server) (Donne Martin)](https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server)
 - [Load Balancing (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#load-balancing)
 - [Clustering (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#clustering)
 - [Proxy (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#proxy)
@@ -121,6 +134,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Forward proxy vs Reverse proxy](https://newsletter.systemdesign.one/p/forward-proxy-vs-reverse-proxy)
 
 ### Service Discovery & Heartbeats
+- [Service discovery (Donne Martin)](https://github.com/donnemartin/system-design-primer#service-discovery)
 - [Service Discovery (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#service-discovery)
 - What is service discovery?
 - [Service Discovery](https://systemdesign.one/what-is-service-discovery/)
@@ -135,6 +149,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 3. Architectural Patterns and Design Principles
 
 ### Monolithic vs Microservices
+- [Application layer (Donne Martin)](https://github.com/donnemartin/system-design-primer#application-layer)
+- [Microservices (Donne Martin)](https://github.com/donnemartin/system-design-primer#microservices)
 - [Monoliths and Microservices (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#monoliths-and-microservices)
 - Monolithic architecture pros and cons
 - Introduction to microservices
@@ -182,6 +198,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Must Know HTTP Headers](https://newsletter.systemdesign.one/p/http-headers)
 
 ### Advanced Communication Protocols
+- [Remote procedure call (RPC) (Donne Martin)](https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc)
+- [Representational state transfer (REST) (Donne Martin)](https://github.com/donnemartin/system-design-primer#representational-state-transfer-rest)
 - [REST, GraphQL, gRPC (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#rest-graphql-grpc)
 - [Long polling, WebSockets, Server-Sent Events (SSE) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#long-polling-websockets-server-sent-events-sse)
 - [How Do Websockets Work](https://newsletter.systemdesign.one/p/how-do-websockets-work)
@@ -202,6 +220,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 4. Database Engineering Fundamentals
 
 ### Database Fundamentals
+- [Database (Donne Martin)](https://github.com/donnemartin/system-design-primer#database)
+- [Relational database management system (RDBMS) (Donne Martin)](https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms)
 - [Databases and DBMS (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#databases-and-dbms)
 - [Database Federation (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#database-federation)
 - [ACID Transactions](https://algomaster.io/learn/system-design/acid-transactions)
@@ -258,6 +278,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Analyzing query execution plans
 
 ### Database Replication
+- [Master-slave replication (Donne Martin)](https://github.com/donnemartin/system-design-primer#master-slave-replication)
+- [Master-master replication (Donne Martin)](https://github.com/donnemartin/system-design-primer#master-master-replication)
 - [Database Replication (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#database-replication)
 - What is database replication?
 - Master-slave replication
@@ -265,6 +287,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Replication lag and consistency
 
 ### Database Partitioning
+- [Federation (Donne Martin)](https://github.com/donnemartin/system-design-primer#federation)
+- [Sharding (Donne Martin)](https://github.com/donnemartin/system-design-primer#sharding)
 - [Consistent Hashing (AlgoMaster)](https://algomaster.io/learn/system-design/consistent-hashing)
 - [Sharding (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#sharding)
 - [Consistent Hashing (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#consistent-hashing)
@@ -276,6 +300,8 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Consistent Hashing](https://systemdesign.one/consistent-hashing-explained/)
 
 ### Designing Database Schema
+- [Denormalization (Donne Martin)](https://github.com/donnemartin/system-design-primer#denormalization)
+- [SQL tuning (Donne Martin)](https://github.com/donnemartin/system-design-primer#sql-tuning)
 - [Normalization and Denormalization (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#normalization-and-denormalization)
 - Database schema design principles
 - Choosing the right data types
@@ -318,6 +344,12 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - When to choose SQL databases
 
 ### NoSQL Databases
+- [NoSQL (Donne Martin)](https://github.com/donnemartin/system-design-primer#nosql)
+- [Key-value store (Donne Martin)](https://github.com/donnemartin/system-design-primer#key-value-store)
+- [Document store (Donne Martin)](https://github.com/donnemartin/system-design-primer#document-store)
+- [Wide column store (Donne Martin)](https://github.com/donnemartin/system-design-primer#wide-column-store)
+- [Graph Database (Donne Martin)](https://github.com/donnemartin/system-design-primer#graph-database)
+- [SQL or NoSQL (Donne Martin)](https://github.com/donnemartin/system-design-primer#sql-or-nosql)
 - [NoSQL databases (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#nosql-databases)
 - [SQL vs NoSQL databases (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#sql-vs-nosql-databases)
 - Introduction to NoSQL databases
@@ -349,6 +381,10 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 8. Asynchronous Communication Patterns
 
 ### Message Queue Fundamentals
+- [Asynchronism (Donne Martin)](https://github.com/donnemartin/system-design-primer#asynchronism)
+- [Message queues (Donne Martin)](https://github.com/donnemartin/system-design-primer#message-queues)
+- [Task queues (Donne Martin)](https://github.com/donnemartin/system-design-primer#task-queues)
+- [Back pressure (Donne Martin)](https://github.com/donnemartin/system-design-primer#back-pressure)
 - [Message Brokers (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#message-brokers)
 - [Message Queues (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#message-queues)
 - [Publish-Subscribe (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#publish-subscribe)
@@ -384,6 +420,13 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 9. Caching Patterns and Strategies
 
 ### Caching Fundamentals
+- [Cache (Donne Martin)](https://github.com/donnemartin/system-design-primer#cache)
+- [Client caching (Donne Martin)](https://github.com/donnemartin/system-design-primer#client-caching)
+- [CDN caching (Donne Martin)](https://github.com/donnemartin/system-design-primer#cdn-caching)
+- [Web server caching (Donne Martin)](https://github.com/donnemartin/system-design-primer#web-server-caching)
+- [Database caching (Donne Martin)](https://github.com/donnemartin/system-design-primer#database-caching)
+- [Application caching (Donne Martin)](https://github.com/donnemartin/system-design-primer#application-caching)
+- [When to update the cache (Donne Martin)](https://github.com/donnemartin/system-design-primer#when-to-update-the-cache)
 - [Caching 101](https://algomaster.io/learn/system-design/what-is-caching)
 - [Caching Strategies](https://algomaster.io/learn/system-design/caching-strategies)
 - [Cache Eviction Policies](https://blog.algomaster.io/p/7-cache-eviction-strategies)
@@ -430,6 +473,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How Load Balancing Algorithms Work](https://newsletter.systemdesign.one/p/load-balancing-algorithms)
 
 ### Health Checks & Failover
+- [Fail-over (Donne Martin)](https://github.com/donnemartin/system-design-primer#fail-over)
 - [Failover (AlgoMaster)](https://www.druva.com/glossary/what-is-a-failover-definition-and-related-faqs)
 - Health check strategies
 - Active vs passive health checks
@@ -555,6 +599,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 ## 15. Security
 
 ### Authentication & Authorization
+- [Security (Donne Martin)](https://github.com/donnemartin/system-design-primer#security)
 - [OAuth 2.0 and OpenID Connect (OIDC) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#oauth-20-and-openid-connect-oidc)
 - [Single Sign-On (SSO) (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#single-sign-on-sso)
 - Authentication vs authorization
@@ -628,6 +673,14 @@ A complete guide to system design, combining concepts from [The System Design Ac
 
 ## 18. Real-World System Design Case Studies & Practice
 ### Mock Interviews
+- [Design Pastebin.com (or Bit.ly) (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/pastebin#design-pastebincom-or-bitly)
+- [Design the Twitter timeline and search (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/twitter#design-the-twitter-timeline-and-search-or-facebook-feed-and-search)
+- [Design a web crawler (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/web_crawler#design-a-web-crawler)
+- [Design Mint.com (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/mint#design-mintcom)
+- [Design the data structures for a social network (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/social_graph#design-the-data-structures-for-a-social-network)
+- [Design a key-value store for a search engine (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/query_cache#design-a-key-value-store-for-a-search-engine)
+- [Design Amazon's sales ranking by category feature (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/sales_rank#design-amazons-sales-ranking-by-category-feature)
+- [Design a system that scales to millions of users on AWS (Donne Martin)](https://github.com/donnemartin/system-design-primer/tree/master/solutions/system_design/scaling_aws#design-a-system-that-scales-to-millions-of-users-on-aws)
 - [URL Shortener (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#url-shortener)
 - [WhatsApp (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#whatsapp)
 - [Twitter (Karan Pratap Singh)](https://github.com/karanpratapsingh/system-design#twitter)
