@@ -14,19 +14,23 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Software Engineer Interview Learning Resources](https://systemdesign.one/software-engineer-interview-learning-resources/)
 - [Behavioral Interview Playbook](https://newsletter.systemdesign.one/p/common-behavioral-interview-questions)
 - [Mobile System Design Interview Framework](https://newsletter.systemdesign.one/p/mobile-system-design-interview)
+- [Software Engineer Resume](https://newsletter.systemdesign.one/p/software-engineer-resume)
 
 ## 2. Fundamentals of System Design
-### What is system design?
+### What is a system design?
 - Introduction to system design
 - [11 System Design Concepts Explained, Simply](https://newsletter.systemdesign.one/p/11-system-design-concepts-explained)
 - [114 System Design Concepts - Part 1](https://newsletter.systemdesign.one/p/system-design-concepts)
 - [114 System Design Concepts - Part 2](https://newsletter.systemdesign.one/p/system-design-core-concepts)
 - [114 System Design Concepts - Part 3](https://newsletter.systemdesign.one/p/system-design-fundamentals)
 - [The Entire Computer Science Stack, Explained In 51 Images](https://newsletter.systemdesign.one/p/computer-science-101)
+- Mobile System Design Concepts - Part 1, 2
 
-### Scalability, Availability & Reliability
+### Scalability
 - What is scalability?
 - Scalability vs Performance
+
+### Availability
 - What is availability?
 - [What Is High Availability](https://newsletter.systemdesign.one/p/what-is-high-availability)
 - How is availability measured?
@@ -34,37 +38,109 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - How to achieve high availability?
 - Types of failures in distributed systems?
 - What are availability patterns?
+
+### Reliability
 - What is reliability and why it matters?
 - SLAs, SLOs, and SLIs explained
 
-### Fault Tolerance & Consistency
+### Fault tolerance
 - What is Fault tolerance?
 - Fault tolerance vs availability
 - Graceful degradation strategies
+
+### Consistency
 - What is Consistency?
+- A word on Consistency patterns.
 - [Consistency Patterns](https://systemdesign.one/consistency-patterns/)
 - Eventual consistency in distributed systems
 
-### CAP & PACELC Theorems
-- A word on CAP theorem
+### CAP theorem
+- A word on CAP theorem.
 - PACELC theorem explained
 
-## 3. Networking Fundamentals
-- Latency vs. through-put vs. bandwidth
+### Concurrency
+- What is Concurrency?
+- [Concurrency Is Not Parallelism](https://newsletter.systemdesign.one/p/concurrency-is-not-parallelism)
+- Introduction to threads, deadlock & starvation.
+- Race conditions and synchronization
+
+### Idempotency
+- What is idempotency and why it matters?
+- Implementing idempotent operations
+
+### Clock and time in distributed systems
+- Why time is hard in distributed systems
+- Introduction to logical clocks and NTP
+- Vector clocks and causality
+
+### Retry, timeout and backoff strategies
+- Introduction to timeouts and retries
+- What is exponential backoff?
+
+### Networking
+- Latency vs. through-put vs. bandwidth.
+- Introduction to DNS (domain name system)
 - [How DNS Works](https://newsletter.systemdesign.one/p/what-is-a-dns-server-and-how-does-it-work)
 - TCP vs UDP in system design
+- HTTP/HTTPS and REST principles
 - [What Happens When You Type a URL Into Your Browser?](https://systemdesign.one/what-happens-when-you-type-url-into-your-browser/)
 - [How to Troubleshoot if You Can’t Access a Particular Website?](https://systemdesign.one/how-to-troubleshoot-if-you-cannot-access-a-website/)
 
-## 4. API Design & Communication Protocols
+### A basic intro to core components
+- Introduction to CDN
+- Introduction to Load balancer
+- Introduction to Caching
+- Introduction to API Gateway
+- [How API Gateway Works](https://newsletter.systemdesign.one/p/how-api-gateway-works)
+- [API Gateway vs Load Balancer vs Reverse Proxy](https://newsletter.systemdesign.one/p/api-gateway-load-balancer-reverse-proxy)
+- [Forward proxy vs Reverse proxy](https://newsletter.systemdesign.one/p/forward-proxy-vs-reverse-proxy)
+
+### Service Discovery & Heartbeats
+- What is service discovery?
+- [Service Discovery](https://systemdesign.one/what-is-service-discovery/)
+- How do heartbeats help detect failures?
+- Service registry patterns
+
+### Estimation & Back-of-envelope calculations
+- System design estimation fundamentals
+- Capacity planning basics
+- QPS, storage, and bandwidth calculations
+
+## 3. Architectural Patterns and Design Principles
+
+### Monolithic vs Microservices
+- Monolithic architecture pros and cons
+- Introduction to microservices
+- When to choose microservices vs monolith
+- Service decomposition strategies
+- [1 Simple Technique to Scale Microservices Architecture](https://newsletter.systemdesign.one/p/how-to-scale-microservices)
+
+### Event-Driven Architecture
+- What is event-driven architecture?
+- Event sourcing patterns
+- CQRS (Command Query Responsibility Segregation)
+- Pub/Sub messaging patterns
+
+### Resilience Patterns
+- Circuit breaker pattern
+- Bulkhead pattern
+- Retry and timeout patterns
+- Saga pattern for distributed transactions
+
+### Migration Patterns
+- Strangler fig pattern
+- Blue-green deployment
+- Canary deployment
+
 ### API Design Patterns
-- [Must Know HTTP Headers](https://newsletter.systemdesign.one/p/http-headers)
-- [How Does HTTPS Work](https://newsletter.systemdesign.one/p/how-does-https-work)
 - RESTful API design principles
 - GraphQL vs REST
+- API versioning strategies
 - [API Versioning](https://newsletter.systemdesign.one/p/api-versioning)
-- [Best Practices for API Design](https://newsletter.systemdesign.one/p/best-practices-for-api-design)
 - API rate limiting and throttling
+- [Best Practices for API Design](https://newsletter.systemdesign.one/p/best-practices-for-api-design)
+- [How Does HTTPS Work](https://newsletter.systemdesign.one/p/how-does-https-work)
+- [Must Know HTTP Headers](https://newsletter.systemdesign.one/p/http-headers)
 
 ### Advanced Communication Protocols
 - [How Do Websockets Work](https://newsletter.systemdesign.one/p/how-do-websockets-work)
@@ -72,73 +148,247 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How Remote Procedure Call Works](https://newsletter.systemdesign.one/p/how-rpc-works)
 - Serialization Formats: Protocol Buffers (Protobuf), Apache Thrift, Apache Avro
 
-## 5. Basic Intro to Core Components
-- Introduction to CDN
-- Introduction to Load balancer
-- Introduction to Caching
-- [How API Gateway Works](https://newsletter.systemdesign.one/p/how-api-gateway-works)
-- [API Gateway vs Load Balancer vs Reverse Proxy](https://newsletter.systemdesign.one/p/api-gateway-load-balancer-reverse-proxy)
-- [Forward proxy vs Reverse proxy](https://newsletter.systemdesign.one/p/forward-proxy-vs-reverse-proxy)
+### Additional Patterns
+- [Actor Model](https://newsletter.systemdesign.one/p/actor-model)
+- [Cell Based Architecture](https://newsletter.systemdesign.one/p/cell-based-architecture)
+- [How Sidecar Pattern Works](https://newsletter.systemdesign.one/p/sidecar-pattern)
 
-## 6. Database Engineering Fundamentals
-### ACID & Transactions
-- Atomicity, Consistency, Isolation, Durability
+## 4. Database Engineering Fundamentals
+
+### ACID
+- Atomicity.
+- Consistency.
+- Isolation.
+- Durability.
+- Understanding ACID properties with a live example.
+
+### Database Transactions
 - What are database transactions?
-- Transaction isolation levels (Phantom Reads, Dirty reads, Serialization)
+- Transaction isolation levels
+- Phantom Reads.
+- Dirty reads and non-repeatable reads
+- Serialization vs. Repeatable Read
 - [How Databases Keep Passwords Securely](https://newsletter.systemdesign.one/p/how-to-store-passwords-in-database)
 
 ### Database Fundamentals
 - OLTP vs OLAP systems
 - Database normalization
 - Primary keys, foreign keys, and constraints
-- Designing Database Schema (principles, data types, migrations)
+
+## 5. Database Scaling Concepts
+
+### Database Indexing
+- Indexing - data structure that powers your database.
+- How database indexing actually works internally?
+- B-tree and B+ tree indexes
+- Hash indexes and bitmap indexes
+- Composite indexes and index optimization
+
+### Database Locking
+- Introduction to database locking.
+- Row-level vs table-level locking
+- Deadlock detection and prevention
+
+### Database Tuning & Optimizations
+- What is database performance tuning?
+- Query optimization techniques
+- Database connection pooling
+- Analyzing query execution plans
+
+### Database Replication
+- What is database replication?
+- Master-slave replication
+- Master-master replication
+- Replication lag and consistency
+
+### Database Partitioning
+- What is database partitioning?
+- Horizontal partitioning (sharding)
+- Vertical partitioning
+- Sharding strategies and challenges
+- Consistent hashing for sharding
+- [Consistent Hashing](https://systemdesign.one/consistent-hashing-explained/)
+
+### Designing Database Schema
+- Database schema design principles
+- Choosing the right data types
+- Database migration strategies
+
+## 6. Database Internals
+
+### Storage Engine Internals
+- How tables and indexes are stored on disk?
+- B-tree and LSM-tree storage structures
+- Page layouts and buffer pool management
+- Write-ahead logging (WAL) mechanisms
+- [How Timsort Algorithm Works](https://newsletter.systemdesign.one/p/timsort-algorithm)
+
+### Query Processing
+- Query parsing and optimization
+- Execution plan generation
+- Join algorithms and optimization
+- Cost-based optimization
+
+### MySQL Internals
+- InnoDB storage engine architecture
+- Sorting algorithm behind ORDER BY query in MySQL?
+- MySQL replication internals
+- Transaction isolation in InnoDB
+
+### NoSQL Database Internals
+- MongoDB document storage and indexing
+- Cassandra ring architecture and partitioning
+- Redis data structures and persistence
+- Elasticsearch inverted index structure
 
 ## 7. Data Storages (Databases)
-- SQL Databases (MySQL, PostgreSQL, SQL Server)
-- NoSQL Databases (MongoDB, CouchDB, Redis, DynamoDB, Cassandra, HBase, Neo4j)
-- SQL vs NoSQL - which, when, where & why?
-- Time Series Database
-- Data Warehouses & Analytics (Redshift, BigQuery, ETL vs ELT)
-- Distributed file systems (HDFS, GFS, S3, Azure Blob)
 
-## 8. Load Balancing and Traffic Management
-- [How Load Balancing Algorithms Work](https://newsletter.systemdesign.one/p/load-balancing-algorithms)
-- [Rate Limiting Strategies Explained](https://newsletter.systemdesign.one/p/rate-limiting)
-- Health check strategies (Active vs passive)
-- Failover and failback strategies
-- Sticky sessions and session affinity
+### SQL Databases
+- Introduction to SQL databases
+- Popular SQL databases (MySQL, PostgreSQL, SQL Server)
+- SQL transactions and ACID compliance
+- When to choose SQL databases
 
-## 9. Caching Patterns and Strategies
-- [Top 5 Caching Patterns](https://newsletter.systemdesign.one/p/caching-patterns)
-- Cache-aside, Write-through, Write-behind, Refresh-ahead
-- [Redis Use Cases](https://newsletter.systemdesign.one/p/redis-use-cases)
-- Memcached vs Redis
-- Distributed cache architecture (sharding, partitioning)
+### NoSQL Databases
+- Introduction to NoSQL databases
+- Document databases (MongoDB, CouchDB)
+- Key-value stores (Redis, DynamoDB)
+- Wide-column stores (Cassandra, HBase)
+- Graph databases (Neo4j, Amazon Neptune)
+- bonusSQL vs NoSQL - which, when, where & why?
 
-## 10. Asynchronous Communication Patterns
+### Specialized Databases
+- Time Series Database - Everything you need to know
+- Why to choose a time-series database?
+- Search engines (Elasticsearch, Solr)
+- In-memory databases (Redis, Memcached)
+
+### Data Warehouses & Analytics
+- What is a data warehouse?
+- Columnar databases (Redshift, BigQuery)
+- Data lakes vs data warehouses
+- ETL vs ELT pipelines
+
+### Storage Systems
+- Introduction to blob storage (S3, Azure Blob)
+- File storage systems
+- Object storage vs block storage
+- Distributed file systems (HDFS, GFS)
+
+## 8. Asynchronous Communication Patterns
+
+### Message Queue Fundamentals
+- What are message queues?
 - [How Message Queues Work](https://newsletter.systemdesign.one/p/what-is-a-message-queue)
+- Synchronous vs asynchronous communication
+- Point-to-point vs publish-subscribe
+- Message ordering and delivery guarantees
+
+### Popular Message Queue Systems
+- Apache Kafka architecture and use cases
 - [How Kafka Works](https://newsletter.systemdesign.one/p/how-kafka-works)
 - RabbitMQ and AMQP protocol
+- Amazon SQS and cloud message queues
+- Redis pub/sub capabilities
+
+### Message Processing Patterns
 - Dead letter queues
 - Message deduplication strategies
+- Batch processing vs stream processing
+- Consumer groups and load balancing
 
-## 11. Database Scaling Concepts
-- [Consistent Hashing](https://systemdesign.one/consistent-hashing-explained/)
-- Database Indexing (B-tree, B+ tree, Hash indexes, Bitmap)
-- Database Locking (Row-level vs table-level, Deadlocks)
-- Database Replication (Master-slave, Master-master)
-- Database Partitioning (Horizontal/Sharding, Vertical)
+### Stream Processing
+- Introduction to stream processing
+- Apache Kafka Streams
+- Apache Flink and real-time processing
+- Windowing and aggregations
 
-## 12. Architectural Patterns and Design Principles
-- Monolithic vs Microservices
-- [1 Simple Technique to Scale Microservices Architecture](https://newsletter.systemdesign.one/p/how-to-scale-microservices)
-- Event-Driven Architecture (Event sourcing, CQRS)
-- Resilience Patterns (Circuit breaker, Bulkhead, Retry/timeout)
-- [Actor Model](https://newsletter.systemdesign.one/p/actor-model)
-- [Cell Based Architecture](https://newsletter.systemdesign.one/p/cell-based-architecture)
-- [How Sidecar Pattern Works](https://newsletter.systemdesign.one/p/sidecar-pattern)
+## 9. Caching Patterns and Strategies
 
-## 13. Probabilistic & Advanced Data Structures
+### Caching Fundamentals
+- What is caching and why it matters?
+- Cache hit ratio and performance metrics
+- Cache invalidation strategies
+- Cache coherence and consistency
+
+### Caching Patterns
+- Cache-aside (lazy loading)
+- Write-through caching
+- Write-behind (write-back) caching
+- Refresh-ahead caching
+- [Top 5 Caching Patterns](https://newsletter.systemdesign.one/p/caching-patterns)
+
+### Cache Technologies
+- Redis deep dive
+- [Redis Use Cases](https://newsletter.systemdesign.one/p/redis-use-cases)
+- Memcached vs Redis
+- Application-level caching
+- Database query result caching
+
+### Distributed Caching
+- Distributed cache architecture
+- Cache sharding and partitioning
+- Cache replication strategies
+- Handling cache failures
+
+## 10. Load Balancing and Traffic Management
+
+### Load Balancing Fundamentals
+- What is load balancing?
+- Layer 4 vs Layer 7 load balancing
+- Hardware vs software load balancers
+- Load balancer placement strategies
+
+### Load Balancing Algorithms
+- Round robin and weighted round robin
+- Least connections algorithm
+- IP hash and consistent hashing
+- Least response time algorithm
+- [How Load Balancing Algorithms Work](https://newsletter.systemdesign.one/p/load-balancing-algorithms)
+
+### Health Checks & Failover
+- Health check strategies
+- Active vs passive health checks
+- Failover and failback strategies
+- Circuit breaker integration
+
+### Advanced Traffic Management
+- Sticky sessions and session affinity
+- Rate limiting and throttling
+- [Rate Limiting Strategies Explained](https://newsletter.systemdesign.one/p/rate-limiting)
+- Traffic shaping and QoS
+- Global load balancing
+
+## 11. Advanced Distributed Systems
+
+### Consensus Algorithms
+- What is consensus in distributed systems?
+- Raft consensus algorithm
+- Paxos algorithm explained
+- Byzantine fault tolerance
+
+### Distributed Transactions
+- Two-phase commit (2PC) protocol
+- Three-phase commit (3PC) protocol
+- Saga pattern for long-running transactions
+- Eventual consistency patterns
+
+### Coordination & Synchronization
+- Distributed locks and leader election
+- Apache Zookeeper coordination service
+- etcd for distributed coordination
+- Gossip protocols for information dissemination
+- [Gossip Protocol](https://systemdesign.one/gossip-protocol/)
+- [Hinted Handoff](https://systemdesign.one/hinted-handoff/)
+
+### Partitioning & Replication
+- Data partitioning strategies
+- Consistent hashing deep dive
+- Replication strategies (master-slave, master-master)
+- Quorum-based systems
+- [Distributed Systems Deep Dive](https://newsletter.systemdesign.one/p/distributed-systems)
+
+## 12. Probabilistic & Advanced Data Structures
 - [Bloom Filter](https://systemdesign.one/bloom-filters-explained/)
 - [Quotient Filter](https://systemdesign.one/quotient-filter-explained/)
 - HyperLogLog (Unique counting at scale)
@@ -147,24 +397,112 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - Merkle Trees (Anti-entropy in Dynamo/Cassandra)
 - Tries & Inverted Indexes (Search and Typeahead)
 
-## 14. Advanced Distributed Systems
-- [Distributed Systems Deep Dive](https://newsletter.systemdesign.one/p/distributed-systems)
-- [Concurrency Is Not Parallelism](https://newsletter.systemdesign.one/p/concurrency-is-not-parallelism)
-- [Service Discovery](https://systemdesign.one/what-is-service-discovery/)
-- [Gossip Protocol](https://systemdesign.one/gossip-protocol/)
-- [Hinted Handoff](https://systemdesign.one/hinted-handoff/)
-- Consensus & Coordination (Raft, Paxos, Zookeeper, etcd)
+## 13. Performance Optimization
 
-## 15. Global Architecture & Multi-Data Center Design
-- Multi-Data Center deployments (Active-Active vs. Active-Passive)
-- Edge computing and advanced CDN architectures
+### Performance Fundamentals
+- Performance metrics and KPIs
+- Latency vs throughput trade-offs
+- Performance testing strategies
+- Capacity planning and forecasting
 
-## 16. Database Internals
-- B-tree and LSM-tree storage structures
-- Write-ahead logging (WAL) mechanisms
-- Query parsing and execution plan generation
-- Transaction isolation in InnoDB
-- [How Timsort Algorithm Works](https://newsletter.systemdesign.one/p/timsort-algorithm)
+### Application Performance
+- Code-level optimization techniques
+- Memory management and garbage collection
+- Asynchronous programming patterns
+- Connection pooling and resource management
+
+### Database Performance
+- Query optimization and indexing strategies
+- Database connection pooling
+- Read replicas and write optimization
+- Database partitioning for performance
+
+### System Performance
+- CPU, memory, and I/O optimization
+- Network performance optimization
+- Container and orchestration performance
+- CDN and edge computing optimization
+
+## 14. Modern Infrastructure and DevOps
+
+### Containerization
+- Docker fundamentals for system design
+- Container orchestration with Kubernetes
+- Microservices deployment patterns
+- Service mesh architecture (Istio, Linkerd)
+
+### Cloud Architecture
+- Cloud-native application design
+- Serverless architecture patterns
+- Multi-cloud and hybrid cloud strategies
+- Edge computing and CDN integration
+- [15 Pitfalls That Break Cloud Systems](https://newsletter.systemdesign.one/p/cloud-system-design)
+
+### Deployment Strategies
+- CI/CD pipeline design
+- Blue-green deployment
+- Canary deployment strategies
+- Rolling deployment and rollback
+- [Deployment Patterns](https://newsletter.systemdesign.one/p/deployment-patterns)
+
+### Infrastructure as Code & Practices
+- Infrastructure automation principles
+- Configuration management
+- Auto-scaling and resource management
+- Disaster recovery and backup strategies
+- [21 Git Commands](https://newsletter.systemdesign.one/p/commands-in-git)
+- [How to Scale Code Reviews](https://newsletter.systemdesign.one/p/how-to-do-code-review)
+- [Code Review Best Practices](https://newsletter.systemdesign.one/p/code-review-best-practices)
+- [Stacked Diffs](https://newsletter.systemdesign.one/p/stacked-diffs)
+
+## 15. Security
+
+### Authentication & Authorization
+- Authentication vs authorization
+- OAuth 2.0 and OpenID Connect
+- JWT tokens and session management
+- [How JWT Works](https://newsletter.systemdesign.one/p/how-jwt-works)
+- Single Sign-On (SSO) systems
+
+### API Security
+- API authentication strategies
+- API keys vs tokens
+- Rate limiting for security
+- Input validation and sanitization
+- [Best Practices for API Security](https://newsletter.systemdesign.one/p/api-security-best-practices)
+
+### Security Patterns
+- Defense in depth strategy
+- Zero trust architecture
+- Principle of least privilege
+- Security by design
+
+### Common Security Threats
+- DDoS attacks and mitigation
+- SQL injection prevention
+- Cross-site scripting (XSS) prevention
+- Data encryption at rest and in transit
+- [Cybersecurity Terms Every Software Engineer Must Know](https://newsletter.systemdesign.one/p/cybersecurity-fundamentals)
+
+## 16. Monitoring and Observability
+
+### Monitoring Fundamentals
+- What is observability?
+- Metrics, logs, and traces (three pillars)
+- Monitoring vs observability
+- SLIs, SLOs, and error budgets
+
+### Metrics & Alerting
+- Application metrics and KPIs
+- Infrastructure monitoring
+- Alerting strategies and alert fatigue
+- Dashboards and visualization
+
+### Logging Strategies
+- Structured logging best practices
+- Centralized logging architecture
+- Log aggregation and analysis
+- Log retention and storage
 
 ## 17. Search & AI System Design (AI Engineering)
 - [How AI Agents Work](https://newsletter.systemdesign.one/p/ai-agents-explained)
@@ -187,26 +525,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How RAG Works](https://newsletter.systemdesign.one/p/how-rag-works)
 - [Vector Database - A Deep Dive](https://newsletter.systemdesign.one/p/what-is-a-vector-database)
 
-## 18. Performance Optimization
-- [21 Frontend System Design Concepts](https://newsletter.systemdesign.one/p/frontend-system-design)
-- [Micro Frontends](https://newsletter.systemdesign.one/p/micro-frontends)
-- Component Optimization
-- Database Performance
-
-## 19. Modern Infrastructure and DevOps
-- [15 Pitfalls That Break Cloud Systems](https://newsletter.systemdesign.one/p/cloud-system-design)
-- [Deployment Patterns](https://newsletter.systemdesign.one/p/deployment-patterns)
-- [21 Git Commands](https://newsletter.systemdesign.one/p/commands-in-git)
-- [How to Scale Code Reviews](https://newsletter.systemdesign.one/p/how-to-do-code-review)
-- [Code Review Best Practices](https://newsletter.systemdesign.one/p/code-review-best-practices)
-- [Stacked Diffs](https://newsletter.systemdesign.one/p/stacked-diffs)
-
-## 20. Security
-- [Cybersecurity Terms Every Software Engineer Must Know](https://newsletter.systemdesign.one/p/cybersecurity-fundamentals)
-- [Best Practices for API Security](https://newsletter.systemdesign.one/p/api-security-best-practices)
-- [How JWT Works](https://newsletter.systemdesign.one/p/how-jwt-works)
-
-## 21. Real-World System Design Case Studies & Practice
+## 18. Real-World System Design Case Studies & Practice
 ### Mock Interviews
 - [Design Airbnb](https://newsletter.systemdesign.one/p/airbnb-system-design)
 - [Design ChatGPT](https://newsletter.systemdesign.one/p/chatgpt-system-design)
@@ -235,6 +554,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [Pastebin](https://systemdesign.one/system-design-pastebin/)
 - [Bitly URL Shortener Architecture](https://systemdesign.one/url-shortening-system-design/)
 - [Wechat Architecture](https://newsletter.systemdesign.one/p/chat-application-architecture)
+- [Amazon Frugal Architecture Explained](https://newsletter.systemdesign.one/p/frugal-architecture)
 
 ### Scale & Scaling Strategies
 - [How to Scale an App to 10 Million Users on AWS](https://newsletter.systemdesign.one/p/aws-scale)
@@ -286,7 +606,7 @@ A complete guide to system design, combining concepts from [The System Design Ac
 - [How Zapier Automates Billions of Tasks](https://newsletter.systemdesign.one/p/zapier-architecture)
 - [How Nginx Supports 1 Million Concurrent Connections](https://newsletter.systemdesign.one/p/how-does-nginx-work)
 
-## 22. Software White Papers
+## 19. Software White Papers
 - [Amazon Dynamo](https://newsletter.systemdesign.one/p/amazon-dynamo-architecture)
 - [Google Spanner](https://newsletter.systemdesign.one/p/cloud-spanner-database)
 - [Meta Serverless Architecture: XFaaS](https://newsletter.systemdesign.one/p/serverless-architecture)
