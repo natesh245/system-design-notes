@@ -32,8 +32,31 @@ There are two primary ways to scale a system:
 #### 3. Key Concepts & Patterns
 *   **Statelessness:** Application servers should not store user session state locally. Sessions should be moved to a shared, fast cache (e.g., Redis) so any server can handle any request.
 *   **Scalability vs. Performance:** 
-    *   *Performance:* How fast the system is for a single user (latency).
     *   *Scalability:* How well the system maintains performance under heavy concurrent load. If a system is fast for one user but crashes under load, it has a scalability problem.
+
+#### 4. How to Measure Scalability
+Scalability is measured by assessing how system performance changes as you scale both load and resources. To evaluate this, you must distinguish between **Load Metrics** and **Performance Metrics**.
+
+| Metric Type | Definition | Key Examples | Purpose in Scalability |
+| :--- | :--- | :--- | :--- |
+| **Load Metrics (Input)** | Describe the demand placed on the system by external actors. | Requests Per Second (RPS/QPS), Active concurrent users, Data ingestion volume (GB/day), Database write rate. | Acts as the **independent variable** in tests. You increase this to see where the system breaks. |
+| **Performance Metrics (Output / Health)** | Describe how the system behaves and responds under a given load. | Latency ($p95, p99$), Throughput (successful responses/sec), CPU/Memory saturation, Disk I/O wait, HTTP Error Rates. | Acts as the **dependent variable**. You track these to verify if the system maintains acceptable health as load rises. |
+
+*   **Resource Scaling Efficiency:**
+    $$\text{Scaling Efficiency} = \frac{\text{Throughput with } N \text{ resources}}{N \times \text{Throughput with } 1 \text{ resource}}$$
+    *   **Linear Scale ($100\%$ efficiency):** Throughput doubles when resources double (rare in practice due to coordination overhead).
+    *   **Sub-linear Scale ($<100\%$ efficiency):** Throughput increases, but at a diminishing rate as you add resources.
+    *   **Negative Scale:** Adding more resources actually *decreases* throughput due to contention and communication overhead.
+
+*   **Load Testing & Key Performance Indicators (KPIs):**
+    1.  **Throughput vs. Load:** Plotting concurrent users/RPS against actual throughput. The curve should rise steadily. A flatline indicates a bottleneck.
+    2.  **Latency Percentiles ($p50, p90, p99, p99.9$):** Average latency is misleading. Scalability is measured by tracking tail latencies ($p99$ or $p99.9$—meaning the slowest $1\%$ or $0.1\%$ of requests). If $p99$ spikes exponentially under load while average latency rises slowly, the system is hitting queueing bottlenecks.
+    3.  **Resource Saturation:** Monitoring CPU, Memory, Network I/O, and Disk I/O. A scalable system saturates resources evenly rather than having a single resource lock up at $100\%$ (e.g., database lock contention).
+
+*   **Mathematical Models:**
+    *   **Amdahl's Law:** Shows that the speedup of a system is limited by its serial (non-parallelizable) components.
+    *   **Universal Scalability Law (USL):** Extends Amdahl's law to account for **coordination overhead** (crosstalk between nodes) and **contention** (waiting for shared resources). It explains why systems eventually hit a peak throughput and then decline as more nodes are added.
+
 
 ### Availability
 Availability is the percentage of time a system remains operational, functional, and accessible to process incoming requests. High Availability (HA) ensures that a service is online with minimal to no downtime, even during component failures.
@@ -97,15 +120,14 @@ The CAP Theorem states that in a distributed computer system, it is impossible t
 2.  **Availability (A):** Every non-failing node returns a response (without guarantee that it contains the most recent write).
 3.  **Partition Tolerance (P):** The system continues to operate despite network partitions (dropped or delayed messages between nodes).
 
-```mermaid
-graph TD
-    A[CAP Theorem] --> C[Consistency]
-    A --> Av[Availability]
-    A --> P[Partition Tolerance]
-    
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style Av fill:#ccf,stroke:#333,stroke-width:2px
-    style P fill:#cfc,stroke:#333,stroke-width:2px
+```text
+                [ CAP Theorem ]
+                 /     |     \
+                /      |      \
+               /       |       \
+     [ Consistency ]   |   [ Partition Tolerance ]
+                       |
+               [ Availability ]
 ```
 
 #### 1. The Partition Constraint (CP vs. AP)
