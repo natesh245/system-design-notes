@@ -34,3 +34,22 @@ When interviewing for Node.js roles, keep these three structural principles at t
 *   **Avoid "Magic" Explanations:** Don't just say `async/await` "makes code asynchronous". Explain that it is syntactic sugar over Promises, which utilize V8's microtask queue to yield control back to the call stack once resolved.
 *   **Understand Under the Hood:** Be prepared to explain exactly *where* a socket read occurs (OS kernel via epoll/kqueue) vs. where a cryptographic hash is calculated (Libuv thread pool).
 *   **Know Your Tooling:** Interviews often involve troubleshooting. Know how to capture a heap snapshot using `--inspect` and compare them in Chrome DevTools to trace a memory leak, or explain how to generate a CPU profile to debug 100% CPU usage.
+
+---
+
+## 📈 Study Log & Progress
+
+### 📅 July 6, 2026
+* **Completed:** Deep-dive study and Q&A on **Chapter 1: Node.js Core Architecture & Event Loop**.
+* **Key Topics Covered:**
+  * Single-threaded JS execution (one Call Stack per thread) vs. multi-threaded Node.js runtime internals (V8 threads, Libuv thread pool).
+  * V8 JIT Compilation Pipeline (Parsing ➔ AST ➔ Ignition Interpreter Bytecode ➔ Turbofan Compiler Native Machine Code ➔ Deoptimization loop).
+  * RAM Memory Spaces: Bytecode stored as managed objects in the **V8 Heap**, while native machine code resides in the executable **Code Space**.
+  * Hardware CPU execution of bytecode (running interpreter's machine code instructions as a translation middleman) vs. direct native machine code execution.
+  * Structure of a **Stack Frame** (parameters, local variables, return address) and how it keeps execution context on the Call Stack.
+* **Documentation Updated:** Expanded [01-event-loop-architecture.md](file:///Users/natesh/projects/system-design/nodejs-learning-and-interview-prep/01-event-loop-architecture.md) to fully capture these low-level compilation and execution mechanics.
+* **Next Steps (Context for Tomorrow):**
+  * **Start with a revision quiz:** Ask diagnostic questions on today's V8 compilation and execution topics (Ignition, Turbofan, Heap vs. Code Space, Stack Frames).
+  * Complete **Chapter 1: Event Loop & Architecture** ([01-event-loop-architecture.md](./01-event-loop-architecture.md)) by studying Event Loop phases, Microtask queue ordering (`process.nextTick` vs. Promises), Libuv Thread Pool delegation, and Event Loop blocking detection & prevention.
+
+

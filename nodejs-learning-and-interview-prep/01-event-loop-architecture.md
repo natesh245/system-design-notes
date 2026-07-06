@@ -27,7 +27,25 @@ Node.js is not a programming language; it is a runtime environment that wraps th
 
 ### 1. The V8 Engine
 *   **Role:** Compiles JavaScript source code to native machine code before executing it, manages memory allocation (Heap), and executes JavaScript (Call Stack).
-*   **Single-Threaded:** V8 has one Call Stack. Only one line of JavaScript code can run at any given moment on this main thread.
+*   **Single-Threaded JS Execution:** V8 allocates exactly **one main OS thread** to run the execution engine. Therefore, V8 has exactly **one Call Stack**, running your JavaScript code sequentially (line-by-line) on this thread.
+
+#### ⚙️ The V8 Execution Pipeline (JIT Compilation)
+Rather than executing code line-by-line directly from the text file, V8 compiles code dynamically using a Just-In-Time (JIT) compilation model:
+1. **Parsing:** V8 parses JavaScript source code into an **Abstract Syntax Tree (AST)**.
+2. **Bytecode Generation (Ignition Interpreter):** V8's interpreter, Ignition, converts the AST into **bytecode** (a low-level, intermediate format). This bytecode is stored as data structures inside the managed **V8 Heap** in RAM, where it can be garbage-collected if no longer needed. The interpreter begins running this bytecode immediately, enabling fast startup times.
+3. **Optimized Machine Code (Turbofan Compiler):** As the code executes, V8 monitors performance. If a function is run frequently (a "hot" function), V8's optimizing compiler, Turbofan, compiles its bytecode into optimized **native machine code** (specifically tailored for the underlying CPU architecture, such as x86-64 or ARM64).
+4. **Code Storage:** This native machine code is stored in the **Code Space**, a specialized, non-writable, executable region of RAM allocated to the Node.js process.
+5. **Deoptimization:** Because JS is dynamically typed, if the JIT compiler's assumptions about type stability fail during execution (e.g., a function that always received numbers is suddenly passed a string), V8 discards the optimized machine code and falls back to interpreting the bytecode (Ignition).
+
+#### 🗃️ The Call Stack & Hardware Execution
+* **What is a Stack Frame?** When a function is called, V8 allocates a **Stack Frame** on the Call Stack. Crucially, the stack frame does *not* contain the code of the function itself. It is a data structure containing:
+  * **Function Arguments/Parameters**
+  * **Local Variables**
+  * **Return Address** (a pointer indicating where the CPU should resume execution in the calling code once the function finishes).
+* **Hardware Execution vs. Logical Structure:** 
+  * At the **hardware level**, the CPU executes binary machine code instructions. The CPU has an Instruction Pointer (or Program Counter register) tracking the address of the next physical instruction to execute.
+  * **Bytecode Execution:** For unoptimized code, the CPU thread runs the compiled native machine code of the *Ignition interpreter program* itself. Ignition reads the JS bytecode as data from the Heap, translates it on the fly, and directs the CPU thread to carry out the operations, using the Stack Frame to read/write local variables.
+  * **Optimized Execution:** For optimized code, the CPU thread's Instruction Pointer jumps directly to the machine code stored in the *Code Space* (RAM) and runs it natively at maximum speed, bypassing interpreter overhead.
 
 ### 2. The Libuv Library
 *   **Role:** A multi-platform C library that handles non-blocking asynchronous I/O operations, provides the **Event Loop**, and manages the background **Thread Pool**.
