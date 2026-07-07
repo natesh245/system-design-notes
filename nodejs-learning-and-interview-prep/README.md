@@ -57,8 +57,12 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Libuv Thread Pool offloading vs. OS Kernel native asynchronous mechanisms (`epoll`/`kqueue`/`IOCP`).
   * Event loop blocking detection (e.g., `--blocked-loop-threshold`) and solutions (partitioning, payload limiting, worker threads).
 * **Next Steps (Context for Tomorrow):**
-  * **Start with a revision quiz:** Ask diagnostic questions on the Event Loop phases, microtasks, and thread pool offloading rules.
+  * **Start with a revision quiz:** Ask diagnostic questions covering:
+    1. Event Loop phases and microtask queue priority rules.
+    2. Libuv Thread Pool vs. OS Kernel offloading rules.
+    3. The V8 Execution & Hardware Boundary Q&A from [01-event-loop-architecture.md](./01-event-loop-architecture.md#L214-L235).
   * Move to **Chapter 2: Asynchronous Control & Streams** ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md)) to cover Promises, Event Emitters, Buffers, Streams, and backpressure handling.
+
 
 
 

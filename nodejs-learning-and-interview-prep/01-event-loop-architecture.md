@@ -210,3 +210,24 @@ Since JavaScript runs on a single main thread, any CPU-intensive operation or sy
 ### How to Solve:
 1.  **Partitioning Computation:** Break heavy work into smaller chunks using `setImmediate()` to yield control back to the event loop.
 2.  **Offloading:** Delegate CPU-bound tasks to child processes (`child_process.fork()`) or worker threads (`worker_threads`).
+
+---
+
+## 🧠 Deep-Dive Q&A: V8 Execution & Hardware Boundaries
+
+Use this section to review the low-level boundaries between JavaScript execution, the V8 engine, and physical CPU/OS hardware.
+
+### Q1: Does the V8 interpreter compile bytecode to machine code on the fly?
+**No.** The Ignition interpreter does not generate new machine code. The interpreter is itself a pre-compiled program running on the CPU. It contains built-in handlers (machine code routines) to emulate/run each bytecode instruction. 
+* **The Compiler (Turbofan)** is the component that actually generates new native machine code blocks on the fly and saves them to the executable Code Space in RAM.
+
+### Q2: How does the CPU fetch bytecode vs. optimized machine code?
+* **Optimized Machine Code:** The CPU's Program Counter register points directly to the code memory address. The CPU fetches these instructions directly as **executable commands**.
+* **Bytecode:** The CPU's Program Counter points to the *interpreter's machine code*. The CPU fetches the bytecode from the V8 Heap as **data** to be read, decoded, and executed by the interpreter's program logic.
+
+### Q3: Does synchronous JS code utilize Libuv or OS non-blocking system calls?
+**No.** Synchronous code stays completely within the V8 Call Stack on the single main execution thread. It does not yield or delegate to Libuv threads or OS kernel resources, meaning it blocks all subsequent events until the stack frame is popped.
+
+### Q4: Does the V8 Call Stack need to be completely empty for the Event Loop to run?
+**Yes.** Because JavaScript execution is single-threaded, the main thread can only do one thing at a time. The event loop cannot tick to process asynchronous callbacks or move between phases unless the V8 Call Stack is completely clear of executing synchronous functions.
+
