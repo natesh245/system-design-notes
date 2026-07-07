@@ -57,11 +57,20 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Libuv Thread Pool offloading vs. OS Kernel native asynchronous mechanisms (`epoll`/`kqueue`/`IOCP`).
   * Event loop blocking detection (e.g., `--blocked-loop-threshold`) and solutions (partitioning, payload limiting, worker threads).
 * **Next Steps (Context for Tomorrow):**
-  * **Start with a revision quiz:** Ask diagnostic questions covering:
-    1. Event Loop phases and microtask queue priority rules.
-    2. Libuv Thread Pool vs. OS Kernel offloading rules.
-    3. The V8 Execution & Hardware Boundary Q&A from [01-event-loop-architecture.md](./01-event-loop-architecture.md#L214-L235).
+  * **Start with a revision quiz (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
+    * **Specific User Questions to Quiz:**
+      1. *"What is a Thread at the CPU/OS level, and is it accurate to say it is a sequence of instructions executing on the CPU?"*
+      2. *"How does the V8 interpreter (Ignition) run bytecode without compiling it to machine code on the fly? (Explain the emulated handler concept.)"*
+      3. *"Where are bytecode and optimized machine code stored at the memory level (V8 Heap vs. Code Space inside RAM)?"*
+      4. *"What exactly does a V8 Call Stack Frame store, and does it contain the compiled function code?"*
+      5. *"How does the CPU fetch bytecode vs. optimized machine code (instructions vs. data)?"*
+      6. *"Does synchronous code get offloaded, and does the Call Stack have to be empty for the Event Loop to proceed?"*
+    * **Standard Review Topics:**
+      1. Event Loop phases and microtask queue priority rules.
+      2. Libuv Thread Pool vs. OS Kernel offloading rules.
   * Move to **Chapter 2: Asynchronous Control & Streams** ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md)) to cover Promises, Event Emitters, Buffers, Streams, and backpressure handling.
+
+
 
 
 
