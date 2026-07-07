@@ -48,8 +48,17 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Hardware CPU execution of bytecode (running interpreter's machine code instructions as a translation middleman) vs. direct native machine code execution.
   * Structure of a **Stack Frame** (parameters, local variables, return address) and how it keeps execution context on the Call Stack.
 * **Documentation Updated:** Expanded [01-event-loop-architecture.md](file:///Users/natesh/projects/system-design/nodejs-learning-and-interview-prep/01-event-loop-architecture.md) to fully capture these low-level compilation and execution mechanics.
+### 📅 July 7, 2026
+* **Completed:** Remainder of **Chapter 1: Node.js Core Architecture & Event Loop**.
+* **Key Topics Covered:**
+  * Detailed Event Loop phases (Timers, Pending, Idle/Prepare, Poll, Check, Close Callbacks) and the blocking behavior of the Poll phase.
+  * Non-deterministic order of top-level `setTimeout` vs. `setImmediate` vs. guaranteed execution inside I/O callbacks.
+  * Microtask execution priority (`process.nextTick` vs. Promise queues) and the draining mechanics.
+  * Libuv Thread Pool offloading vs. OS Kernel native asynchronous mechanisms (`epoll`/`kqueue`/`IOCP`).
+  * Event loop blocking detection (e.g., `--blocked-loop-threshold`) and solutions (partitioning, payload limiting, worker threads).
 * **Next Steps (Context for Tomorrow):**
-  * **Start with a revision quiz:** Ask diagnostic questions on today's V8 compilation and execution topics (Ignition, Turbofan, Heap vs. Code Space, Stack Frames).
-  * Complete **Chapter 1: Event Loop & Architecture** ([01-event-loop-architecture.md](./01-event-loop-architecture.md)) by studying Event Loop phases, Microtask queue ordering (`process.nextTick` vs. Promises), Libuv Thread Pool delegation, and Event Loop blocking detection & prevention.
+  * **Start with a revision quiz:** Ask diagnostic questions on the Event Loop phases, microtasks, and thread pool offloading rules.
+  * Move to **Chapter 2: Asynchronous Control & Streams** ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md)) to cover Promises, Event Emitters, Buffers, Streams, and backpressure handling.
+
 
 
