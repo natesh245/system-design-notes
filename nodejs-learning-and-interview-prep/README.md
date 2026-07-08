@@ -57,18 +57,34 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Libuv Thread Pool offloading vs. OS Kernel native asynchronous mechanisms (`epoll`/`kqueue`/`IOCP`).
   * Event loop blocking detection (e.g., `--blocked-loop-threshold`) and solutions (partitioning, payload limiting, worker threads).
 * **Next Steps (Context for Tomorrow):**
+  * Move to **Chapter 2: Asynchronous Control & Streams** ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md)) to cover Promises, Event Emitters, Buffers, Streams, and backpressure handling.
+### 📅 July 8, 2026
+* **Completed:** Chapter 1 revision quiz and first half of **Chapter 2: Asynchronous Control & Streams** (up to Event Emitters).
+* **Key Topics Covered:**
+  * **Chapter 1 Revision:**
+    * CPU/OS-level Thread definition (execution context with registers/PC/Stack vs. static instruction sequences).
+    * V8 Call Stack vs. Program Counter (instruction-level tracking via PC register vs. function-level return address tracking in stack frames).
+    * Subroutine and procedure execution models at the machine code level (`CALL`/`RET` and jumps).
+    * V8 Ignition Bytecode interpreter and pre-compiled machine code handlers (emulated execution).
+    * RAM separation: managed V8 Heap (Read/Write, garbage-collected) vs. executable Code Space (Read/Execute, non-writable/security-hardened).
+    * V8 Stack Frame structure: receivers, contexts, JSFunction closure references (heap lookup to find bytecode/machine code), and local variables.
+    * Physical CPU execution rules: Optimized code is executed directly as native instructions, while Bytecode is processed as data by the interpreter program.
+    * Blocking nature of synchronous JS code and the necessity of an empty call stack for the event loop to proceed.
+  * **Chapter 2 (Asynchronous Control & Streams):**
+    * Why Node.js is optimized for I/O-bound apps: single-threaded event loop, non-blocking delegation to OS kernel (`epoll`/`kqueue`/`IOCP`), and offloading to Libuv thread pool.
+    * Asynchronous control flow evolution: Callbacks (error-first) ➔ Promises ➔ Async/Await.
+    * EventEmitter memory leaks: reference chains (`Root` ➔ global emitter ➔ listener list ➔ callback ➔ closure scope ➔ short-lived requestData objects) preventing garbage collection.
+    * V8 GC Mark-and-Sweep algorithm: Why local emitters do not leak (forming unreachable cycles that V8 sweeps), whereas global emitters do.
+    * Unsubscribe mechanisms: breaking reference chains using `.once()` or manual `.off()`/`removeListener()` cleanups (e.g. on response `'finish'` events).
+* **Next Steps (Context for Tomorrow):**
   * **Start with a revision quiz (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
     * **Specific User Questions to Quiz:**
-      1. *"What is a Thread at the CPU/OS level, and is it accurate to say it is a sequence of instructions executing on the CPU?"*
-      2. *"How does the V8 interpreter (Ignition) run bytecode without compiling it to machine code on the fly? (Explain the emulated handler concept.)"*
-      3. *"Where are bytecode and optimized machine code stored at the memory level (V8 Heap vs. Code Space inside RAM)?"*
-      4. *"What exactly does a V8 Call Stack Frame store, and does it contain the compiled function code?"*
-      5. *"How does the CPU fetch bytecode vs. optimized machine code (instructions vs. data)?"*
-      6. *"Does synchronous code get offloaded, and does the Call Stack have to be empty for the Event Loop to proceed?"*
-    * **Standard Review Topics:**
-      1. Event Loop phases and microtask queue priority rules.
-      2. Libuv Thread Pool vs. OS Kernel offloading rules.
-  * Move to **Chapter 2: Asynchronous Control & Streams** ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md)) to cover Promises, Event Emitters, Buffers, Streams, and backpressure handling.
+      1. *"What is the difference under the hood in terms of execution queue priority between an asynchronous I/O callback (e.g., in fs.readFile) and a Promise callback (e.g., in .then() or await)?"*
+      2. *"Explain the unhandledRejection event. When does V8 emit it, and why does Node.js recommend a graceful shutdown upon receiving it?"*
+      3. *"Explain the reference chain that causes a memory leak when a callback enclosing local variables is registered to a long-lived EventEmitter."*
+      4. *"Why does a local EventEmitter inside a route handler NOT cause a memory leak, while a global EventEmitter does? (Explain in terms of V8's Mark-and-Sweep GC tracing from the root)."*
+      5. *"How do `.once()` and `.off()` prevent memory leaks in EventEmitters?"*
+  * Continue **Chapter 2: Asynchronous Control & Streams** ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md)) starting with **Buffers vs. Streams** (alloc vs. allocUnsafe) and **Backpressure**.
 
 
 
