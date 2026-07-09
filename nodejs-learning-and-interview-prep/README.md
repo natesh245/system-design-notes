@@ -76,15 +76,24 @@ When interviewing for Node.js roles, keep these three structural principles at t
     * EventEmitter memory leaks: reference chains (`Root` ➔ global emitter ➔ listener list ➔ callback ➔ closure scope ➔ short-lived requestData objects) preventing garbage collection.
     * V8 GC Mark-and-Sweep algorithm: Why local emitters do not leak (forming unreachable cycles that V8 sweeps), whereas global emitters do.
     * Unsubscribe mechanisms: breaking reference chains using `.once()` or manual `.off()`/`removeListener()` cleanups (e.g. on response `'finish'` events).
+### 📅 July 9, 2026
+* **Completed:** Chapter 2 in its entirety, including all revision quizzes (Promises, error handling, EventEmitters, off-heap Buffers, Streams, backpressure, and pipeline).
+* **Key Topics Covered:**
+  * Microtask Queue priority (V8 Promise queue vs. process.nextTick vs. Libuv I/O macrotasks) and immediate draining lifecycle (after each macrotask completes).
+  * Express v4 async error-handling limitation (lack of automatic promise rejection catching, leading to hanging client connections).
+  * EventEmitter reference chain cleanup: manual `.off()` vs. wrapper-based `.once()` execution mechanics.
+  * V8 Mark-and-Sweep Garbage Collection vs. Reference Counting (tracing from roots, handling circular references).
+  * Off-heap Buffer allocation (raw C++ memory outside the V8 heap, zero-copy, GC pressure bypass, V8 memory boundary bypass).
+  * Stream backpressure handling: how `writable.write()` returns `false` when hitting the `highWaterMark`, and the `'drain'` event to resume reading.
+  * Flaws of `.pipe()` (leaks resource handles on error) vs. safety of `stream.pipeline()` (auto-destroying all streams upon failure).
 * **Next Steps (Context for Tomorrow):**
   * **Start with a revision quiz (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
     * **Specific User Questions to Quiz:**
-      1. *"What is the difference under the hood in terms of execution queue priority between an asynchronous I/O callback (e.g., in fs.readFile) and a Promise callback (e.g., in .then() or await)?"*
-      2. *"Explain the unhandledRejection event. When does V8 emit it, and why does Node.js recommend a graceful shutdown upon receiving it?"*
-      3. *"Explain the reference chain that causes a memory leak when a callback enclosing local variables is registered to a long-lived EventEmitter."*
-      4. *"Why does a local EventEmitter inside a route handler NOT cause a memory leak, while a global EventEmitter does? (Explain in terms of V8's Mark-and-Sweep GC tracing from the root)."*
-      5. *"How do `.once()` and `.off()` prevent memory leaks in EventEmitters?"*
-  * Continue **Chapter 2: Asynchronous Control & Streams** ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md)) starting with **Buffers vs. Streams** (alloc vs. allocUnsafe) and **Backpressure**.
+      1. *"What is the main architectural difference between Child Processes and Worker Threads, specifically regarding process boundaries, V8 instances, and memory sharing?"*
+      2. *"Explain the differences between spawn(), exec(), execFile(), and fork(). In what scenario would you choose spawn() over exec()?"*
+      3. *"How does the Cluster module load balance incoming connection requests on Unix systems? (Explain the role of the primary process and worker port binding)."*
+      4. *"What are V8 Isolates, and how do we share memory directly between Worker Threads without IPC serialization? What danger does this introduce?"*
+  * Begin **Chapter 3: Concurrency & Multiprocessing** ([03-concurrency-multiprocessing.md](./03-concurrency-multiprocessing.md)).
 
 
 
