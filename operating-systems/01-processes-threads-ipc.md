@@ -35,10 +35,23 @@ A **process** is an active, running instance of a program. It is the primary uni
 A **thread** is the smallest unit of execution that the OS kernel can schedule on a CPU core. Every process has at least one thread (the main thread).
 * **Shared Memory:** All threads belonging to the same process share that process’s virtual memory space (including the Heap and global variables) and system resources (like the File Descriptor Table).
 * **Private Resources:** Each thread retains its own:
-  * **Program Counter (PC):** Points to the current instruction being executed.
+  * **Program Counter (PC):** Points to the address of the current instruction being executed on the CPU core.
   * **Registers:** Dedicated CPU register storage for immediate values.
-  * **Stack Space:** Private, local storage for function calls, arguments, local variables, and return addresses.
+  * **Stack Space:** Private, local LIFO (Last In, First Out) memory storage for function calls, arguments, local variables, and return addresses.
 * **Risk:** If a thread performs an invalid memory operation (e.g., segment fault) or encounters an unhandled exception, it will crash the **entire process** and terminate all sibling threads.
+
+#### 🗂️ The Anatomy of a Stack Frame (Hardware-Level Function Calls)
+When a thread calls a function, a block of memory called a **Stack Frame** is pushed onto the thread's private stack. It does *not* store the compiled function code itself, but rather the execution state for that specific call:
+* **Function Arguments/Parameters:** Inputs passed to the function.
+* **Local Variables:** Variables declared inside the function's scope.
+* **Return Address:** A pointer indicating the exact memory address in the *caller* function where the CPU should jump back to and resume execution once this function returns.
+
+At the assembly level, invoking a function is done using a jump/branch instruction (like `CALL` in x86 or `BL` in ARM) which pushes the next instruction address onto the stack. Exiting the function is done using `RET` (Return), which pops the address off the stack and loads it back into the Program Counter (PC).
+
+#### ⚙️ How the CPU Executes Code: Machine Code vs. Bytecode
+The CPU's physical Program Counter (PC) only points to native, executable machine code instructions. It cannot read high-level code or bytecode directly:
+* **Optimized Machine Code Execution:** The PC points directly to the JIT-compiled binary machine code (e.g., in the Code Space in RAM). The CPU reads these bytes directly as native **instructions** (executable commands) and runs them at hardware speed.
+* **Bytecode / Interpreted Execution:** The PC points to the pre-compiled machine code of the **Interpreter program** (e.g., V8 Ignition). The CPU executes the interpreter's code. The interpreter then fetches the virtual bytecode from the Heap as **data** (reading it into registers to parse and decode) and executes its own pre-compiled machine code handlers corresponding to each bytecode instruction.
 
 ---
 

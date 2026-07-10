@@ -28,6 +28,20 @@ Applications do not interact with physical RAM addresses directly. Instead, they
 * **Page Tables:** The kernel maintains a lookup table for each process that maps its virtual pages to physical page frames in RAM.
 * **Memory Management Unit (MMU):** A hardware component in the CPU that uses the page tables to instantly translate virtual addresses used by code into physical RAM addresses.
 
+### 🔒 Memory Page Permissions & W^X Protection
+Every virtual memory page has access control flags set by the kernel defining the actions permitted on that page:
+* **Read (R):** The process can read data from this page.
+* **Write (W):** The process can write or modify data in this page.
+* **Execute (X):** The CPU is allowed to fetch instructions from this page and execute them (the Program Counter register is permitted to point here).
+
+#### The W^X (Write XOR Execute) Security Rule:
+To prevent security exploits (like Buffer Overflow or Code Injection attacks where a hacker writes malicious executable code to a buffer and directs the Program Counter to jump there), modern operating systems enforce **W^X**:
+* A memory page can be **Writable (+W)** or **Executable (+X)**, but **never both simultaneously**.
+* **Data and Heap Memory:** Typically marked as **RW** (Read-Write) but **not executable** (-X, also known as the **NX / No-Execute bit** or **DEP - Data Execution Prevention**). If the CPU is pointed to run instructions from this heap space, the processor throws a hardware exception (segmentation fault).
+* **Code Memory:** Typically marked as **RX** (Read-Execute) but **not writable** (-W). When runtimes compile code dynamically (like V8's JIT compiler compiling JS to machine code), the runtime writes the code to a writable page, then requests the OS to change the permissions to RX (removing W) before executing it.
+
+---
+
 ### 2. Page Faults
 A **page fault** occurs when a thread tries to access a virtual page that is not currently mapped to a physical page frame in physical RAM.
 
@@ -97,6 +111,20 @@ A **File Descriptor (FD)** is a non-negative integer returned by the kernel when
 ### 1. The File Descriptor Table
 * Every process has its own isolated **File Descriptor Table** managed by the kernel.
 * The integer (e.g., `0`, `1`, `2` for standard input, output, and error; `3` or higher for custom files/sockets) is a pointer to the kernel's global open file table.
+
+#### 🔀 File Descriptor Passing (Socket Handover over IPC)
+By default, multiple separate processes cannot bind to the same local TCP port (e.g., port 80); the second process attempting it will fail with an `EADDRINUSE` (Address already in use) error. 
+
+To scale web servers across multiple cores without port conflicts, operating systems support **passing File Descriptors over IPC**:
+1. **The Primary Process** binds to the port (e.g., port 80) and listens for incoming connections.
+2. When a connection arrives, the Primary process's thread accepts it, and the OS registers a new **File Descriptor (FD)** socket handle.
+3. The Primary process sends this raw FD over a local IPC channel (such as a Unix Domain Socket) to an idle **Worker Process**.
+4. The OS kernel duplicates the socket handle and inserts it into the worker's private **File Descriptor Table**.
+5. The worker process reads incoming bytes and writes outgoing HTTP responses **directly to the socket**, bypassing the Primary process entirely.
+
+This technique is how Node's `cluster` module shares connection workloads across isolated processes without proxy overhead or port binding conflicts.
+
+---
 
 ### 2. Limits and Production Crashes (The `EMFILE` Error)
 Operating systems impose strict limits on the number of open file descriptors a single process can have (often a default of **1024** or **256** on macOS/Linux).
