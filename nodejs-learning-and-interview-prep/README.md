@@ -6,7 +6,7 @@ Welcome to the Node.js Backend Engineering & Interview Preparation roadmap. This
 
 ## 🗺️ Curriculum Overview
 
-This module is split into 6 key chapters, each focusing on a fundamental pillar of Node.js systems engineering:
+This module is split into 7 key chapters, each focusing on a fundamental pillar of Node.js systems engineering:
 
 | Chapter | Topic | Key Focus Areas |
 | :--- | :--- | :--- |
@@ -16,6 +16,7 @@ This module is split into 6 key chapters, each focusing on a fundamental pillar 
 | **04** | [Performance, Memory & GC](./04-performance-memory-gc.md) | V8 Heap spaces, Garbage Collection algorithms, Heap Limits, Memory Leaks, CPU flame graphs, Profiling. |
 | **05** | [Networking & Security](./05-networking-frameworks-security.md) | Express vs. Koa design patterns, Prototype Pollution, ReDoS, CORS, Rate Limiting, Helmet, HTTPS. |
 | **06** | [Interview & Coding Practice](./06-interview-questions-coding-challenges.md) | Core senior Q&As, custom Promise implementation, custom EventEmitter, rate limiters, task queues. |
+| **07** | [NestJS Architecture & DI](./07-nestjs-architecture-di.md) | Controllers, Providers, Modules, Inversion of Control (IoC), Dependency Injection lifecycle, Request Lifecycle. |
 
 ---
 
