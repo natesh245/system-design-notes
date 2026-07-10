@@ -86,6 +86,12 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Off-heap Buffer allocation (raw C++ memory outside the V8 heap, zero-copy, GC pressure bypass, V8 memory boundary bypass).
   * Stream backpressure handling: how `writable.write()` returns `false` when hitting the `highWaterMark`, and the `'drain'` event to resume reading.
   * Flaws of `.pipe()` (leaks resource handles on error) vs. safety of `stream.pipeline()` (auto-destroying all streams upon failure).
+### 📅 July 10, 2026
+* **Completed:** Chapter 2 final review quiz.
+* **Key Topics Covered:**
+  * Memory constraints: V8 heap limits vs. off-heap C++ Buffer allocations.
+  * Process crash mechanics: Out of memory (OOM) failures under `fs.readFile()` on massive files vs. safe chunked streams.
+  * Stream buffering thresholds: default `highWaterMark` values (64KB for Readable, 16KB for Writable) and backpressure triggers.
 * **Next Steps (Context for Tomorrow):**
   * **Start with a revision quiz (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
     * **Specific User Questions to Quiz:**
