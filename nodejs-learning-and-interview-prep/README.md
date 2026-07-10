@@ -87,11 +87,18 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Stream backpressure handling: how `writable.write()` returns `false` when hitting the `highWaterMark`, and the `'drain'` event to resume reading.
   * Flaws of `.pipe()` (leaks resource handles on error) vs. safety of `stream.pipeline()` (auto-destroying all streams upon failure).
 ### 📅 July 10, 2026
-* **Completed:** Chapter 2 final review quiz.
+* **Completed:** Chapter 2 final review quiz and **Chapter 3: Concurrency & Multiprocessing** in its entirety (including revision quiz).
 * **Key Topics Covered:**
-  * Memory constraints: V8 heap limits vs. off-heap C++ Buffer allocations.
-  * Process crash mechanics: Out of memory (OOM) failures under `fs.readFile()` on massive files vs. safe chunked streams.
-  * Stream buffering thresholds: default `highWaterMark` values (64KB for Readable, 16KB for Writable) and backpressure triggers.
+  * **Chapter 2 Revision:**
+    * V8 heap allocation limits vs. off-heap C++ allocations for Buffers.
+    * Memory overflow and process crash mechanics of synchronous/fully-buffered reads (`fs.readFile`) vs. chunk-based streams.
+    * Default `highWaterMark` sizes (64KB for Readable vs 16KB for Writable) and their role in initiating stream backpressure.
+  * **Chapter 3 (Concurrency & Multiprocessing):**
+    * Multi-process boundaries: process memory isolation and separate V8 instances under `child_process` / `cluster` vs. multi-threading under `worker_threads`.
+    * Child process creation: streaming performance of `spawn()` vs. buffered limits (200KB maxBuffer crash) of `exec()`, direct non-shell binaries in `execFile()`, and Node.js process-spawning in `fork()`.
+    * Port Sharing & Load Balancing: how the primary process binds to the server port and hands off raw OS file descriptors (socket handles) to workers over IPC to prevent `EADDRINUSE` errors and load balance via Round-Robin.
+    * V8 Isolates: thread-isolated stack, heap, and event loops in `worker_threads`.
+    * Memory sharing: copying variables using the Structured Clone Algorithm vs. sharing raw memory slots using `SharedArrayBuffer` (and protecting against data race conditions using `Atomics`).
 * **Next Steps (Context for Tomorrow):**
   * **Start with a revision quiz (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
     * **Specific User Questions to Quiz:**
@@ -99,7 +106,7 @@ When interviewing for Node.js roles, keep these three structural principles at t
       2. *"Explain the differences between spawn(), exec(), execFile(), and fork(). In what scenario would you choose spawn() over exec()?"*
       3. *"How does the Cluster module load balance incoming connection requests on Unix systems? (Explain the role of the primary process and worker port binding)."*
       4. *"What are V8 Isolates, and how do we share memory directly between Worker Threads without IPC serialization? What danger does this introduce?"*
-  * Begin **Chapter 3: Concurrency & Multiprocessing** ([03-concurrency-multiprocessing.md](./03-concurrency-multiprocessing.md)).
+  * Begin **Chapter 4: V8 Memory Management, GC & Profiling** ([04-performance-memory-gc.md](./04-performance-memory-gc.md)).
 
 
 
