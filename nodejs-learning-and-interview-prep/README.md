@@ -100,13 +100,46 @@ When interviewing for Node.js roles, keep these three structural principles at t
     * Port Sharing & Load Balancing: how the primary process binds to the server port and hands off raw OS file descriptors (socket handles) to workers over IPC to prevent `EADDRINUSE` errors and load balance via Round-Robin.
     * V8 Isolates: thread-isolated stack, heap, and event loops in `worker_threads`.
     * Memory sharing: copying variables using the Structured Clone Algorithm vs. sharing raw memory slots using `SharedArrayBuffer` (and protecting against data race conditions using `Atomics`).
+### 📅 July 11, 2026
+* **Completed:** Comprehensive review and quiz session covering Chapters 1, 2, and 3.
+* **Key Topics Covered:**
+  * JIT execution pipelines (AST ➔ bytecode in heap ➔ optimized native machine code in Code Space) and type-feedback deoptimization.
+  * Microtask queue priorities (`process.nextTick` vs Promise queues) and Event Loop starvation mechanics.
+  * Express v4 async error-handling limitations (hanging sockets on unhandled rejections).
+  * EventEmitter memory leak analysis (closures retaining scopes) and `.once()` wrapper unsubscription mechanics.
+  * Off-heap Buffer memory limits (`alloc` vs `allocUnsafe` zero-filling and data leakage risks).
+  * System-level socket handle (File Descriptor) passing over IPC in clustered Node.js processes.
+  * Process vs. Thread concurrency boundaries and lightweight background execution trade-offs in `worker_threads` vs. `cluster`.
+
+---
+
+## 🧠 Focus Areas & Weakness Analysis
+
+To achieve senior-level systems engineering mastery, focus on strengthening your understanding of these specific low-level boundary points:
+
+### 1. Asynchronous Rejection Bubbling (Express v4)
+* **The Gap:** Connecting unhandled promise rejections directly to network socket behavior.
+* **Key Concept:** Because Express v4 does not wrap async handlers in automatic try/catch blocks, an unhandled rejection halts code execution before `res.send()` is reached. The socket handle remains open, causing client requests to hang indefinitely until a gateway timeout occurs.
+* **Action:** Review Express v5 automatic promise catching vs. manual async wrappers in Express v4.
+
+### 2. Low-Level IPC File Descriptor Delegation
+* **The Gap:** Understanding how connection handles are shared across process boundaries.
+* **Key Concept:** Node's `cluster` module does not serialize network payloads over IPC. Instead, the primary process sends the OS **File Descriptor (socket handle)** directly over Unix Domain Sockets. The worker process reads raw bytes directly from the network buffer, ensuring zero-copy operations.
+* **Action:** Study file descriptors and OS socket mapping.
+
+### 3. Microtask Recursion vs. Stack Frame Allocation
+* **The Gap:** Distinguishing between synchronous call stacks and asynchronous microtask queues.
+* **Key Concept:** Recursive `process.nextTick()` calls do *not* overflow the V8 Call Stack because each execution finishes and pops its frame before the next is popped from the heap queue. However, because V8 drains the queue completely before turning back to Libuv, it will starve the Event Loop, freezing all I/O.
+* **Action:** Practice tracing V8 stack frame lifecycles vs. queue execution.
+
+---
+
 * **Next Steps (Context for Tomorrow):**
-  * **Start with a revision quiz (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
+  * **Start with a revision quiz focused on these Weak Areas (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
     * **Specific User Questions to Quiz:**
-      1. *"What is the main architectural difference between Child Processes and Worker Threads, specifically regarding process boundaries, V8 instances, and memory sharing?"*
-      2. *"Explain the differences between spawn(), exec(), execFile(), and fork(). In what scenario would you choose spawn() over exec()?"*
-      3. *"How does the Cluster module load balance incoming connection requests on Unix systems? (Explain the role of the primary process and worker port binding)."*
-      4. *"What are V8 Isolates, and how do we share memory directly between Worker Threads without IPC serialization? What danger does this introduce?"*
+      1. *"Explain why recursive process.nextTick calls starve the Event Loop of I/O, but do NOT trigger a Call Stack Overflow."*
+      2. *"In Express v4, what happens when an async route handler throws an unhandled rejection? Why does the request hang instead of sending a 500 error?"*
+      3. *"What is a File Descriptor (FD) on Unix systems, and how does the cluster module use FD passing to avoid EADDRINUSE errors on a single port?"*
   * Begin **Chapter 4: V8 Memory Management, GC & Profiling** ([04-performance-memory-gc.md](./04-performance-memory-gc.md)).
 
 
