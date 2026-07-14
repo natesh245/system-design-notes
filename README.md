@@ -16,7 +16,8 @@ Comprehensive study guides and coding challenges covering Node.js architecture, 
 Core operating systems principles covering processes/threads concurrency, IPC, User/Kernel space boundaries, I/O multiplexing (epoll/kqueue/IOCP), virtual memory, Page Cache, and File Descriptors.
 
 ### 🧩 [DSA Coding Patterns Guide](./dsa-coding-patterns/README.md)
-Structured preparation for coding interviews based on algorithmic patterns (Sliding Window, Two Pointers, Cyclic Sort, BFS/DFS, Heaps, Monotonic Stack, Dynamic Programming) to solve LeetCode-style questions.
+Structured preparation for coding interviews based on algorithmic patterns (Sliding Window, Two Pointers, Cyclic Sort, BFS/DFS, Heaps, Monotonic Stack, Dynamic Programming) to solve LeetCode-style questions. 
+*Note: We follow an Interactive Practice Protocol where the AI provides test suites and stubs, the User writes the code, and the AI validates/gives feedback.*
 
 ---
 
