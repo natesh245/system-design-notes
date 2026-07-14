@@ -110,6 +110,14 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Off-heap Buffer memory limits (`alloc` vs `allocUnsafe` zero-filling and data leakage risks).
   * System-level socket handle (File Descriptor) passing over IPC in clustered Node.js processes.
   * Process vs. Thread concurrency boundaries and lightweight background execution trade-offs in `worker_threads` vs. `cluster`.
+### 📅 July 14, 2026
+* **Completed:** Comprehensive revision quiz on Chapters 1–3 and first half of **Chapter 4: V8 Memory Management, GC & Profiling** (up to memory leaks).
+* **Key Topics Covered:**
+  * V8 vs. Node.js runtime responsibility for microtask queues (Node's `process.nextTick` queue vs V8's Promise microtask queue).
+  * Express v4 async route handler unhandled rejection hanging requests and the custom `asyncHandler` error-propagation wrapper.
+  * Unix File Descriptors (FDs) and `cluster` port sharing via FD-delegation (client socket passing vs. listening socket passing over IPC).
+  * V8 Scavenger GC (From/To semi-space copying mechanics) and promotion age threshold conditions.
+  * Heap allocation of V8 Context objects for closures and JIT scope analysis optimization (excluding unused variables unless sibling closures share the Context—the Meteor leak pattern).
 
 ---
 
@@ -117,33 +125,15 @@ When interviewing for Node.js roles, keep these three structural principles at t
 
 To achieve senior-level systems engineering mastery, focus on strengthening your understanding of these specific low-level boundary points:
 
-### 1. Asynchronous Rejection Bubbling (Express v4)
-* **The Gap:** Connecting unhandled promise rejections directly to network socket behavior.
-* **Key Concept:** Because Express v4 does not wrap async handlers in automatic try/catch blocks, an unhandled rejection halts code execution before `res.send()` is reached. The socket handle remains open, causing client requests to hang indefinitely until a gateway timeout occurs.
-* **Action:** Review Express v5 automatic promise catching vs. manual async wrappers in Express v4.
-
-### 2. Low-Level IPC File Descriptor Delegation
-* **The Gap:** Understanding how connection handles are shared across process boundaries.
-* **Key Concept:** Node's `cluster` module does not serialize network payloads over IPC. Instead, the primary process sends the OS **File Descriptor (socket handle)** directly over Unix Domain Sockets. The worker process reads raw bytes directly from the network buffer, ensuring zero-copy operations.
-* **Action:** Study file descriptors and OS socket mapping.
-
-### 3. Microtask Recursion vs. Stack Frame Allocation
-* **The Gap:** Distinguishing between synchronous call stacks and asynchronous microtask queues.
-* **Key Concept:** Recursive `process.nextTick()` calls do *not* overflow the V8 Call Stack because each execution finishes and pops its frame before the next is popped from the heap queue. However, because V8 drains the queue completely before turning back to Libuv, it will starve the Event Loop, freezing all I/O.
-* **Action:** Practice tracing V8 stack frame lifecycles vs. queue execution.
+### 1. V8 Shared Context Object Lifecycle
+* **The Gap:** Understanding when variables inside a closure are garbage collected vs when they leak.
+* **Key Concept:** V8 creates a single shared Context object for all closures declared within the same parent scope. If one closure references a large variable, that variable is kept in the shared Context, causing it to leak even if other active closures do not reference it.
 
 ---
 
 * **Next Steps (Context for Tomorrow):**
-  * **Start with a revision quiz focused on these Weak Areas (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
+  * **Start with a revision quiz focused on these Chapter 4 areas (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
     * **Specific User Questions to Quiz:**
-      1. *"Explain why recursive process.nextTick calls starve the Event Loop of I/O, but do NOT trigger a Call Stack Overflow."*
-      2. *"In Express v4, what happens when an async route handler throws an unhandled rejection? Why does the request hang instead of sending a 500 error?"*
-      3. *"What is a File Descriptor (FD) on Unix systems, and how does the cluster module use FD passing to avoid EADDRINUSE errors on a single port?"*
-  * Begin **Chapter 4: V8 Memory Management, GC & Profiling** ([04-performance-memory-gc.md](./04-performance-memory-gc.md)).
-
-
-
-
-
-
+      1. *"How do you use programmatic heap snapshots and Chrome DevTools comparison view to pinpoint the constructor or closure causing a memory leak?"*
+      2. *"What is the difference between Clinic.js Doctor, Clinic.js Flame (Flame graphs), and Clinic.js Bubbleprof? What does a wide red block in a Flame Graph indicate?"*
+  * Read and complete the remainder of **Chapter 4: V8 Memory Management, GC & Profiling** ([04-performance-memory-gc.md](./04-performance-memory-gc.md)) covering diagnostics, heap profiling, and Clinic.js performance tools.
