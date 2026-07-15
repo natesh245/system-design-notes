@@ -16,7 +16,7 @@ Node.js is not a programming language; it is a runtime environment that wraps th
 |             Node.js Bindings (C++)              |
 +------------------------+------------------------+
 |  V8 Engine (Google)    |      Libuv (C)         |
-|  - Call Stack          |  - Event Loop          |
+|  - Call Stack          |  - Event Loop          |̌
 |  - Memory Heap         |  - Thread Pool (4)     |
 |  - Garbage Collector   |  - Non-blocking I/O    |
 +------------------------+------------------------+

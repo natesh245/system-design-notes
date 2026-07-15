@@ -118,6 +118,13 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Unix File Descriptors (FDs) and `cluster` port sharing via FD-delegation (client socket passing vs. listening socket passing over IPC).
   * V8 Scavenger GC (From/To semi-space copying mechanics) and promotion age threshold conditions.
   * Heap allocation of V8 Context objects for closures and JIT scope analysis optimization (excluding unused variables unless sibling closures share the Context—the Meteor leak pattern).
+### 📅 July 15, 2026
+* **Completed:** Remainder of **Chapter 4: V8 Memory Management, GC & Profiling** and revision quiz.
+* **Key Topics Covered:**
+  * Programmatic heap snapshots and Chrome DevTools Comparison View (using # Delta and Size Delta to identify leaks).
+  * Tracing references back to GC roots using the Retainers pane to pinpoint closures/constructors.
+  * Analysis of common leak patterns, such as the EventEmitter closure leak, and unsubscription remediation patterns.
+  * CPU performance diagnostic profiling using Node.js native profiler and the Clinic.js suite (`doctor`, `flame` graphs, `bubbleprof`).
 
 ---
 
@@ -132,8 +139,5 @@ To achieve senior-level systems engineering mastery, focus on strengthening your
 ---
 
 * **Next Steps (Context for Tomorrow):**
-  * **Start with a revision quiz focused on these Chapter 4 areas (Format Rules: Ask exactly 1 question at a time. Probe with follow-up questions based on the answers before moving to the next):**
-    * **Specific User Questions to Quiz:**
-      1. *"How do you use programmatic heap snapshots and Chrome DevTools comparison view to pinpoint the constructor or closure causing a memory leak?"*
-      2. *"What is the difference between Clinic.js Doctor, Clinic.js Flame (Flame graphs), and Clinic.js Bubbleprof? What does a wide red block in a Flame Graph indicate?"*
-  * Read and complete the remainder of **Chapter 4: V8 Memory Management, GC & Profiling** ([04-performance-memory-gc.md](./04-performance-memory-gc.md)) covering diagnostics, heap profiling, and Clinic.js performance tools.
+  * **Start from Chapter 1: Node.js Core Architecture & Event Loop ([01-event-loop-architecture.md](./01-event-loop-architecture.md)) with a comprehensive revision quiz.**
+  * Probe deeply with event loop phases, microtask queue execution order, thread pool offloading vs. kernel asynchronous mechanisms.
