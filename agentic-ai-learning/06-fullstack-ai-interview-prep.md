@@ -7,7 +7,7 @@ A targeted interview preparation roadmap and answer framework for **Senior Fulls
 ## 🎯 Role Overview & Target Profile
 
 * **Position:** Senior Fullstack AI Engineer / Generative AI Forward Deployed Engineer (FDE)
-* **Company Profile:** Aviato Consulting (GCP Solutions Firm, ex-Google engineering culture)
+* **Company Profile:** Enterprise AI Solutions Firm / Cloud Consulting (Ex-BigTech engineering standards)
 * **Core Tech Stack:**
   * **AI / LLMOps:** Vertex AI, Vector Search, Pinecone, ChromaDB, pgvector, SSE Streaming, Prompt/Context Engineering.
   * **Backend:** Python (FastAPI / Django), TypeScript / JavaScript (Node.js async loops & middleware).
