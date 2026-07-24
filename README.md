@@ -18,8 +18,8 @@ Core operating systems principles covering processes/threads concurrency, IPC, U
 ### 🤖 [Agentic AI Engineering & Fullstack AI Prep](./agentic-ai-learning/README.md)
 Curriculum covering LLM reasoning loops, tool sandboxing, memory/vector architectures, multi-agent coordination, guardrails, and role-specific interview prep ([Fullstack AI & FDE Guide](./agentic-ai-learning/06-fullstack-ai-interview-prep.md)).
 
-### 🎯 [Aviato Consulting — Fullstack AI Engineer Prep Suite](./interview-prep/aviato-fullstack-ai-engineer/README.md)
-Targeted multi-module preparation suite containing screening question playbooks, system design blueprints (SSE streaming, GCP Vector Search), dual-stack backend guides (Python/Node.js), and mock technical Q&A banks.
+### 🎯 [Fullstack AI Engineer & FDE Interview Prep Suite](./interview-prep/fullstack-ai-engineer/README.md)
+Comprehensive, generic interview preparation suite for **Fullstack AI Engineer** and **Generative AI Forward Deployed Engineer (FDE)** roles across top tech companies, startups, and AI solutions firms. Covers FDE mindset, AI CLI context management, SSE streaming design, enterprise RAG, dual-stack backend (Python/Node.js), BigQuery/Dataflow pipelines, Vertex AI/Vector DBs, and DevOps.
 
 ### 🧩 [DSA Coding Patterns Guide](./dsa-coding-patterns/README.md)
 Structured preparation for coding interviews based on algorithmic patterns (Sliding Window, Two Pointers, Cyclic Sort, BFS/DFS, Heaps, Monotonic Stack, Dynamic Programming) to solve LeetCode-style questions. 
@@ -29,7 +29,7 @@ Structured preparation for coding interviews based on algorithmic patterns (Slid
 
 ## 📂 Repository Structure
 
-*   [`interview-prep/aviato-fullstack-ai-engineer/`](./interview-prep/aviato-fullstack-ai-engineer/) - Dedicated preparation suite for Senior Fullstack AI & FDE roles.
+*   [`interview-prep/fullstack-ai-engineer/`](./interview-prep/fullstack-ai-engineer/) - Industry-standard preparation suite for Fullstack AI Engineer & FDE roles.
 *   [`system-design/`](./system-design/) - Comprehensive system design reference guides and resources (includes the week-by-week `interview-preparation-roadmap/`).
 *   [`agentic-ai-learning/`](./agentic-ai-learning/) - Agentic AI architecture roadmap and [Fullstack AI & FDE Interview Prep](./agentic-ai-learning/06-fullstack-ai-interview-prep.md).
 *   [`nodejs-learning-and-interview-prep/`](./nodejs-learning-and-interview-prep/) - In-depth notes and coding solutions for Node.js.
