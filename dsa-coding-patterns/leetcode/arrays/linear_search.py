@@ -11,7 +11,11 @@ def linear_search(arr, num):
     :return: Index of 'num' if found, else -1.
     """
     # TODO: Implement this function
-    pass
+    for i,n in enumerate(arr):
+        if n == num:
+            return i
+    return -1
+    
 
 
 # --- Test Cases ---
