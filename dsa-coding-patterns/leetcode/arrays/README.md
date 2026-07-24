@@ -22,9 +22,9 @@ Playlist: [Striver's Arrays Playlist](https://www.youtube.com/playlist?list=PLgU
 | **5. Left Rotate an Array by One** | Easy | In Progress (0/6 tests passed) | [left_rotate_one.py](./left_rotate_one.py) |
 | **6. Left Rotate an Array by d Places** | Easy/Medium | In Progress (0/7 tests passed) | [left_rotate_d.py](./left_rotate_d.py) |
 | **7. Move Zeros to End** | Easy | In Progress (0/7 tests passed) | [move_zeros.py](./move_zeros.py) |
-| **8. Linear Search** | Easy | In Progress (0/7 tests passed) | [linear_search.py](./linear_search.py) |
+| **8. Linear Search** | Easy | Completed (7/7 tests passed) | [linear_search.py](./linear_search.py) |
 | **9. Union of Two Sorted Arrays** | Easy/Medium | In Progress (0/7 tests passed) | [union_arrays.py](./union_arrays.py) |
-| **10. Intersection of Two Sorted Arrays** | Easy/Medium | In Progress (0/7 tests passed) | [intersection_arrays.py](./intersection_arrays.py) |
+| **10. Intersection of Two Sorted Arrays** | Easy/Medium | Completed (13/13 tests passed) | [intersection_arrays.py](./intersection_arrays.py) |
 
 ---
 
