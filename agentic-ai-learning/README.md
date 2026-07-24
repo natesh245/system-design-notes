@@ -15,6 +15,7 @@ The roadmap is structured into 5 logical pillars, moving from single-agent conce
 | **03** | [Memory & State Management](./03-memory-state-management.md) | Short-term context management, Long-term memory (vector search, semantic memory), and state persistence. |
 | **04** | [Multi-Agent Systems & Coordination](./04-multi-agent-coordination.md) | Orchestrator-worker patterns, routing, consensus, and frameworks (e.g., LangGraph, AutoGen). |
 | **05** | [Evaluation, Guardrails & Production](./05-evaluation-guardrails-production.md) | Agent evaluation, trajectory tracing, rate-limiting, and preventing agent loops / prompt injections. |
+| **06** | [Fullstack AI & FDE Interview Prep](./06-fullstack-ai-interview-prep.md) | Role-specific interview prep, screening answers, AI context management, SSE streaming design, and Q&A bank. |
 
 ---
 
@@ -67,3 +68,14 @@ Deploying autonomous code to production requires rigorous testing and guardrails
     *   **Tracing:** Log and visualize entire agent execution graphs (using tools like LangSmith, Phoenix, or OpenTelemetry).
     *   **Guardrails:** Request rate limits, budget ceilings ($ USD limits per task), token thresholds, and prompt injection filters.
 *   **Practical Project:** Implement a task runner agent equipped with safety middleware that halts execution if the cumulative cost of API calls for a single task exceeds $2.00, or if the agent executes more than 15 tool steps (detecting infinite loops).
+
+---
+
+### 🎯 Chapter 6: Fullstack AI & FDE Interview Prep
+Targeted preparation guide for Senior Fullstack AI Engineer and Forward Deployed Engineer (FDE) roles.
+*   **Concepts:**
+    *   **Screening Answer Strategies:** AI tool selection (AntiGravity, Claude Code), context scoping, `skills.md` directory setup, preventing token bloat/hallucinations.
+    *   **System Design Scenarios:** Real-time token streaming (SSE in FastAPI/Next.js) and Production Vector Search pipelines (Vertex AI, BigQuery, Dataflow, pgvector).
+    *   **Technical Q&A Bank:** Python `asyncio` vs Node.js Event Loop, Vector DB distance metrics, and streaming APIs.
+*   **Guide Document:** Read the complete guide at [`06-fullstack-ai-interview-prep.md`](./06-fullstack-ai-interview-prep.md).
+
