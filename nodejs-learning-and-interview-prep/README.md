@@ -118,13 +118,19 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * Unix File Descriptors (FDs) and `cluster` port sharing via FD-delegation (client socket passing vs. listening socket passing over IPC).
   * V8 Scavenger GC (From/To semi-space copying mechanics) and promotion age threshold conditions.
   * Heap allocation of V8 Context objects for closures and JIT scope analysis optimization (excluding unused variables unless sibling closures share the Context—the Meteor leak pattern).
-### 📅 July 15, 2026
-* **Completed:** Remainder of **Chapter 4: V8 Memory Management, GC & Profiling** and revision quiz.
-* **Key Topics Covered:**
-  * Programmatic heap snapshots and Chrome DevTools Comparison View (using # Delta and Size Delta to identify leaks).
-  * Tracing references back to GC roots using the Retainers pane to pinpoint closures/constructors.
-  * Analysis of common leak patterns, such as the EventEmitter closure leak, and unsubscription remediation patterns.
-  * CPU performance diagnostic profiling using Node.js native profiler and the Clinic.js suite (`doctor`, `flame` graphs, `bubbleprof`).
+### 📅 July 27, 2026
+* **Completed:** Deep-dive systems revision session focused on **Chapter 1: Core Architecture & Event Loop** (with supporting concepts from Chapter 2). Enriched [01-event-loop-architecture.md](./01-event-loop-architecture.md) with comprehensive code snippets and detailed systems mechanics.
+* **Key Topics Covered & Documented:**
+  * **V8 Execution Pipeline:** Ignition Bytecode in V8 Heap (data processed by interpreter loop) vs. Turbofan Native Machine Code in Code Space (executed directly by CPU Instruction Pointer).
+  * **Event Loop & Microtask Starvation:** Draining `process.nextTick` vs Promise queues after Call Stack clears; nested microtask re-draining before phase transitions; why recursive `nextTick`/Promises freeze the main thread and starve HTTP requests vs how `setImmediate` (Check phase) yields to Poll phase I/O.
+  * **Event Loop Health Monitoring:** Programmatic Event Loop Delay measurement via `perf_hooks` (`monitorEventLoopDelay`); why `p99` Event Loop Delay is far superior to CPU Utilization for detecting single-threaded freezes on multi-core servers.
+  * **Libuv Thread Pool vs. Kernel Async I/O:** File I/O, Crypto, Zlib, and `dns.lookup()` offloaded to Libuv Thread Pool (default 4 threads via `UV_THREADPOOL_SIZE`) vs. Network sockets using non-blocking OS Kernel primitives (`epoll`/`kqueue`/`IOCP`).
+  * **DNS Mechanics:** `dns.lookup()` (blocking C `getaddrinfo` thread pool call) vs `dns.resolve()` (asynchronous c-ares network socket call).
+  * **V8 Shared Context Scope Leaks (Meteor Leak):** How V8 creates a single shared `Context` object per parent scope, causing active closures to retain unused heavy variables via internal `[[Scope]]` pointers.
+  * **EventEmitter & GC Reference Chains:** GC Root ➔ EventEmitter ➔ Listener Array ➔ Callback Closure ➔ V8 Context scope retaining `req`/`res`. Unreachable local emitters automatically swept by V8 Mark-and-Sweep.
+  * **Buffer Allocation Mechanics:** Off-heap raw C++ memory pointers (`malloc`) bypassing V8 Heap limits (`--max-old-space-size`) and avoiding V8 GC pauses. `Buffer.alloc` (zero-filled, safe) vs `Buffer.allocUnsafe` (uninitialized memory, risk of sensitive data exposure).
+  * **Stream Backpressure & Safety:** `writable.write()` returning `false` when exceeding `highWaterMark`, `readable.pause()`, flushes triggering `'drain'`, `readable.resume()`. Flaws of `.pipe()` vs `stream.pipeline()`.
+  * **Concurrency Boundaries:** `child_process.fork()` multi-process memory isolation & IPC vs `worker_threads` V8 Isolates, `SharedArrayBuffer` & `Atomics`.
 
 ---
 
@@ -138,6 +144,8 @@ To achieve senior-level systems engineering mastery, focus on strengthening your
 
 ---
 
-* **Next Steps (Context for Tomorrow):**
-  * **Start from Chapter 1: Node.js Core Architecture & Event Loop ([01-event-loop-architecture.md](./01-event-loop-architecture.md)) with a comprehensive revision quiz.**
-  * Probe deeply with event loop phases, microtask queue execution order, thread pool offloading vs. kernel asynchronous mechanisms.
+* **Next Steps (Context for Next Session):**
+  * **Move to Chapter 2 & Chapter 3 ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md) & [03-concurrency-multiprocessing.md](./03-concurrency-multiprocessing.md)) for deep revision.**
+  * Focus on Streams, `child_process` (`spawn` vs `exec`), `cluster` socket file descriptor passing over IPC, `worker_threads` V8 Isolates, and `SharedArrayBuffer` with `Atomics`.
+
+

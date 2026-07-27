@@ -205,13 +205,46 @@ Since JavaScript runs on a single main thread, any CPU-intensive operation or sy
 
 ### How to Detect:
 *   **Command Line Flags:** Use `--blocked-loop-threshold=100` (prints stack traces to stderr if the event loop is blocked for more than 100ms).
-*   **APIs:** `perf_hooks` Monitor Event Loop Delay.
+*   **APIs (`perf_hooks`):** Programmatically measure Event Loop Delay (queuing lag) using `monitorEventLoopDelay`:
+    ```javascript
+    const { monitorEventLoopDelay } = require('perf_hooks');
+
+    const histogram = monitorEventLoopDelay({ resolution: 10 }); // 10ms sampling interval
+    histogram.enable();
+
+    setInterval(() => {
+        console.log(`Mean Delay : ${(histogram.mean / 1e6).toFixed(2)} ms`);
+        console.log(`p99 Delay  : ${(histogram.percentile(99) / 1e6).toFixed(2)} ms`);
+        console.log(`Max Delay  : ${(histogram.max / 1e6).toFixed(2)} ms`);
+        histogram.reset();
+    }, 5000);
+    ```
+    *Why p99 beats CPU Utilization:* On a multi-core server, 100% CPU utilization on a single Node thread shows up as only 12.5% or 25% host CPU usage, masking freezes. `p99` Event Loop Delay directly measures tail latency experienced by queued callbacks.
 
 ### How to Solve:
-1.  **Partitioning Computation:** Break heavy work into smaller chunks using `setImmediate()` to yield control back to the event loop.
+1.  **Partitioning Computation (`setImmediate` vs `nextTick`):**
+    *   **Bad (Microtask Starvation):** Recursive `process.nextTick()` or `Promise.then()` enqueues microtasks continuously. Node drains microtasks completely before yielding to Libuv phases, freezing the server and starving incoming HTTP requests:
+        ```javascript
+        // BAD: Blocks Event Loop completely until all 1,000,000 items finish
+        function processMicrotask(array, index) {
+            if (index >= array.length) return;
+            doWork(array[index]);
+            process.nextTick(() => processMicrotask(array, index + 1));
+        }
+        ```
+    *   **Good (Macrotask Partitioning):** Using `setImmediate()` places callbacks in Libuv's **Check phase**. After each item, control yields back to the main Libuv loop to service incoming network sockets (Poll phase) and timers before running the next item:
+        ```javascript
+        // GOOD: Yields to Poll phase between chunks to service HTTP traffic
+        function processMacrotask(array, index) {
+            if (index >= array.length) return;
+            doWork(array[index]);
+            setImmediate(() => processMacrotask(array, index + 1));
+        }
+        ```
 2.  **Offloading:** Delegate CPU-bound tasks to child processes (`child_process.fork()`) or worker threads (`worker_threads`).
 
 ---
+
 
 ## 🧠 Deep-Dive Q&A: V8 Execution & Hardware Boundaries
 
