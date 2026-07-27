@@ -15,8 +15,8 @@ Comprehensive study guides and coding challenges covering Node.js architecture, 
 ### 💻 [Operating Systems for Systems & Backend Engineers](./operating-systems/README.md)
 Core operating systems principles covering processes/threads concurrency, IPC, User/Kernel space boundaries, I/O multiplexing (epoll/kqueue/IOCP), virtual memory, Page Cache, and File Descriptors.
 
-### 🤖 [Agentic AI Engineering & Fullstack AI Prep](./agentic-ai-learning/README.md)
-Curriculum covering LLM reasoning loops, tool sandboxing, memory/vector architectures, multi-agent coordination, guardrails, and role-specific interview prep ([Fullstack AI & FDE Guide](./agentic-ai-learning/06-fullstack-ai-interview-prep.md)).
+### 🤖 [Agentic AI Engineering Knowledge Base](./agentic-ai-learning/README.md)
+Curriculum covering AI engineering disciplines ([Learning Order Guide](./agentic-ai-learning/01-learning-order-and-disciplines.md)), LLM reasoning loops, tool sandboxing, memory/vector context architectures, multi-agent coordination, and guardrails.
 
 ### 🎯 [Fullstack AI Engineer & FDE Interview Prep Suite](./interview-prep/fullstack-ai-engineer/README.md)
 Comprehensive, generic interview preparation suite for **Fullstack AI Engineer** and **Generative AI Forward Deployed Engineer (FDE)** roles across top tech companies, startups, and AI solutions firms. Covers FDE mindset, AI CLI context management, SSE streaming design, enterprise RAG, dual-stack backend (Python/Node.js), BigQuery/Dataflow pipelines, Vertex AI/Vector DBs, and DevOps.
