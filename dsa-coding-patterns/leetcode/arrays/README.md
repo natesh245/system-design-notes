@@ -20,7 +20,7 @@ Playlist: [Striver's Arrays Playlist](https://www.youtube.com/playlist?list=PLgU
 | **3. Check if Array is Sorted** | Easy | Completed (9/9 tests passed) | [is_sorted.py](./is_sorted.py) |
 | **4. Remove Duplicates from Sorted Array** | Easy | Completed (7/7 tests passed) | [remove_duplicates.py](./remove_duplicates.py) |
 | **5. Left Rotate an Array by One** | Easy | Completed (10/10 tests passed) | [left_rotate_one.py](./left_rotate_one.py) |
-| **6. Left Rotate an Array by d Places** | Easy/Medium | In Progress (0/7 tests passed) | [left_rotate_d.py](./left_rotate_d.py) |
+| **6. Left Rotate an Array by d Places** | Easy/Medium | In Progress (0/17 tests passed) | [left_rotate_d.py](./left_rotate_d.py) |
 | **7. Move Zeros to End** | Easy | In Progress (0/7 tests passed) | [move_zeros.py](./move_zeros.py) |
 | **8. Linear Search** | Easy | Completed (7/7 tests passed) | [linear_search.py](./linear_search.py) |
 | **9. Union of Two Sorted Arrays** | Easy/Medium | In Progress (0/7 tests passed) | [union_arrays.py](./union_arrays.py) |
