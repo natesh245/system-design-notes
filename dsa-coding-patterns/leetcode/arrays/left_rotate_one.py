@@ -9,7 +9,22 @@ def left_rotate_one(arr):
     :return: The same list 'arr' modified in-place.
     """
     # TODO: Implement this function
-    pass
+    if not arr:
+        return []
+    
+    if len(arr)==1:
+        return arr
+
+    temp = arr[0]
+
+    
+
+    for i in range(1,len(arr)):
+        arr[i-1]=arr[i]
+    arr[-1]=temp
+    return arr
+
+
 
 
 # --- Test Cases ---
@@ -21,7 +36,12 @@ def run_tests():
         {"arr": [], "expected": [], "description": "Empty array"},
         {"arr": [5, 5, 5], "expected": [5, 5, 5], "description": "Array with identical elements"},
         {"arr": [-1, -2, -3], "expected": [-2, -3, -1], "description": "Array with negative numbers"},
+        {"arr": [0, -1, 4, 0, 9], "expected": [-1, 4, 0, 9, 0], "description": "Mixed zeros, negative, and positive numbers"},
+        {"arr": [1, 2, 2, 1], "expected": [2, 2, 1, 1], "description": "Array with duplicates"},
+        {"arr": list(range(100)), "expected": list(range(1, 100)) + [0], "description": "Large array of size 100"},
+        {"arr": [1, 0, 1, 0], "expected": [0, 1, 0, 1], "description": "Alternating binary elements"},
     ]
+
 
     passed_count = 0
 
