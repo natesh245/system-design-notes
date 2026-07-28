@@ -16,4 +16,5 @@
 ## Topic Notes & Knowledge Organization Protocol
 - **Check Existing Knowledge Base:** When asked about a specific topic (e.g., system design, Node.js, operating systems, agentic AI, algorithms, or company prep), always check if there is an existing relevant folder or `README.md` file in the workspace to record notes, track progress, or append detailed guides.
 - **Dynamic File & Folder Creation:** If a relevant folder/documentation file does not exist for the topic, create a new dedicated folder with structured markdown (`.md`) files and update the main parent `README.md` index to link to the new section.
+- **Periodic Progress Updates:** Always update relevant progress tables, module indices, and status trackers in the relevant markdown (`.md`) files periodically as tasks/problems are completed and at the end of every session.
 
