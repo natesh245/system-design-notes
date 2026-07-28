@@ -10,7 +10,9 @@ Welcome to the **Agentic AI Engineering** curriculum and reference notes. This d
    - Fundamental prerequisite skills: LLM Mechanics, Async Systems, Vector/Relational Databases, Sandboxing/Security, and Observability.
 2. [**How LLMs Work: Core Mechanics & High-Level Architecture**](./00.1-how-llms-work-basics.md)
    - The 5-step pipeline: Tokenization, Embeddings, Transformer Decoder Stack, Next-token prediction, and Post-training alignment.
-3. [**Learning Order: The 5 Disciplines of AI Systems Engineering**](./01-learning-order-and-disciplines.md)
+3. [**AI Agents & Agentic AI: Foundational Concepts**](./00.2-ai-agents-and-agentic-ai-foundations.md)
+   - Defining AI Agents, the core agent equation, LLM vs. Agent comparison, and the 4 core agent capabilities.
+4. [**Learning Order: The 5 Disciplines of AI Systems Engineering**](./01-learning-order-and-disciplines.md)
    - Detailed roadmap covering Prompt Engineering, Context Engineering, Loop Engineering, Harness Engineering, and Agentic Engineering in optimal sequential order.
 
 ---
