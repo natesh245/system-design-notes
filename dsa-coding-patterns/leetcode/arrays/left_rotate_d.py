@@ -10,7 +10,27 @@ def left_rotate_d(arr, d):
     :return: The same list 'arr' modified in-place.
     """
     # TODO: Implement this function
-    pass
+    arr_len = len(arr)
+    if not arr:
+        return arr
+    
+    if arr_len <= d:
+        d = d % arr_len
+    
+    if d==0:
+        return arr
+    
+    temp = arr[:d]
+
+    for i  in range(d,len(arr)):
+        arr[i-d]=arr[i]
+
+    for j in range(d):
+        arr[arr_len - d + j] = temp[j]
+
+    return arr
+
+
 
 
 # --- Test Cases ---
