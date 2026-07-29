@@ -135,9 +135,11 @@ When interviewing for Node.js roles, keep these three structural principles at t
 ### 📅 July 29, 2026
 * **Completed:** Intensive systems quizzing & deep-dive revision on **Chapter 1: Node.js Core Architecture & Event Loop**.
 * **Key Topics Mastered & Verified:**
-  * **V8 JIT Architecture:** Ignition bytecode stored in V8 Heap vs. Turbofan optimized machine code in Code Space; type-feedback polymorphism/megamorphism deoptimization triggers; CPU Instruction Pointer executing Ignition interpreter code vs direct execution of native machine instructions.
+  * **V8 JIT Architecture:** Ignition bytecode stored in V8 Heap vs. Turbofan optimized machine code in Code Space; type-feedback polymorphism/megamorphism deoptimization triggers; CPU Instruction Pointer executing Ignition interpreter code vs direct execution of native machine instructions; Eager vs. Lazy parsing and ephemeral AST storage in Zone Memory.
   * **Event Loop Starvation & Microtask Draining:** Immediate microtask queue (`process.nextTick`) draining after call stack clears vs Libuv Check phase (`setImmediate`) execution; recursive `nextTick` blocking phase transitions and starving Poll phase I/O vs `setImmediate` yielding to Poll phase for socket processing.
   * **Libuv Thread Pool vs. OS Kernel Non-blocking Async I/O:** `http` sockets offloaded to OS kernel primitives (`epoll`/`kqueue`/`IOCP`); `dns.lookup()` using synchronous C `getaddrinfo` offloaded to Libuv Thread Pool (`UV_THREADPOOL_SIZE=4`); thread pool exhaustion mechanics where `dns.lookup()` stalls `fs.readFile()`.
+  * **Synchronous vs Asynchronous System Calls:** `fs.readFileSync` executed directly on the main thread via Libuv synchronous C++ APIs (blocking the OS thread, V8, and Event Loop) vs `fs.readFile` offloaded to Libuv background thread pool workers.
+  * **Node.js C++ Bindings:** `internalBinding` bridging JavaScript wrappers with native C++ source files (`node_file.cc`), using V8 C++ headers (`v8.h`) to marshal JS types into native C++ function pointers for OS system calls.
   * **V8 Shared Context Scope Leaks (Meteor Leak Pattern):** V8 allocating a single shared `Context` object per parent scope; how sibling closures holding `[[Scope]]` pointers to the shared Context prevent garbage collection of unused large variables (`heavyBuffer`).
 
 ---
