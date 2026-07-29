@@ -31,11 +31,16 @@ Node.js is not a programming language; it is a runtime environment that wraps th
 
 #### ⚙️ The V8 Execution Pipeline (JIT Compilation)
 Rather than executing code line-by-line directly from the text file, V8 compiles code dynamically using a Just-In-Time (JIT) compilation model:
-1. **Parsing:** V8 parses JavaScript source code into an **Abstract Syntax Tree (AST)**.
-2. **Bytecode Generation (Ignition Interpreter):** V8's interpreter, Ignition, converts the AST into **bytecode** (a low-level, intermediate format). This bytecode is stored as data structures inside the managed **V8 Heap** in RAM, where it can be garbage-collected if no longer needed. The interpreter begins running this bytecode immediately, enabling fast startup times.
-3. **Optimized Machine Code (Turbofan Compiler):** As the code executes, V8 monitors performance. If a function is run frequently (a "hot" function), V8's optimizing compiler, Turbofan, compiles its bytecode into optimized **native machine code** (specifically tailored for the underlying CPU architecture, such as x86-64 or ARM64).
-4. **Code Storage:** This native machine code is stored in the **Code Space**, a specialized, non-writable, executable region of RAM allocated to the Node.js process.
-5. **Deoptimization:** Because JS is dynamically typed, if the JIT compiler's assumptions about type stability fail during execution (e.g., a function that always received numbers is suddenly passed a string), V8 discards the optimized machine code and falls back to interpreting the bytecode (Ignition).
+1. **Scanning (Tokenization):** The raw UTF-8 source code string is scanned and broken down into tokens (`const`, `x`, `=`, `10`).
+2. **Parsing (Lazy vs. Eager):**
+   * **Lazy Parsing (Pre-parser):** Functions not called on initial execution are fast-parsed without constructing full AST nodes to optimize startup time and memory footprint.
+   * **Eager Parsing (Full Parser):** Executed top-level code and invoked functions are parsed into an **Abstract Syntax Tree (AST)**.
+   * **AST Memory Storage:** The AST is constructed as temporary C++ objects allocated within a dedicated **Zone Memory** arena in the V8 Heap. **Crucially, the AST is ephemeral—once Ignition generates bytecode, the AST is completely discarded and reclaimed from memory.**
+3. **Bytecode Generation (Ignition Interpreter):** V8's interpreter, Ignition, converts the AST into **bytecode** (stored as `BytecodeArray` objects inside the managed **V8 Heap**). The interpreter begins executing this bytecode immediately.
+4. **Type Feedback Profiling:** As Ignition executes bytecode, it populates a **Feedback Vector** array attached to the function, tracking type signatures (e.g., whether arguments remain numeric primitives).
+5. **Optimized Machine Code (Turbofan Compiler):** When execution counts cross a threshold ("hot" function), Turbofan compiles the bytecode and Feedback Vector into optimized **native machine code** (tailored for x86-64 or ARM64).
+6. **Code Space Storage:** This native machine code is stored in the **Code Space**, a specialized `r-x` (read/executable, non-writable) memory region of RAM allocated to the process.
+7. **Deoptimization (Bailout):** If dynamic type assumptions fail (e.g. passing a string to a function optimized for numbers), V8 discards the machine code, unwinds call frames, and falls back to interpreting Ignition bytecode on the Heap.
 
 #### 🗃️ The Call Stack & Hardware Execution
 * **What is a Stack Frame?** When a function is called, V8 allocates a **Stack Frame** on the Call Stack. Crucially, the stack frame does *not* contain the code of the function itself. It is a data structure containing:

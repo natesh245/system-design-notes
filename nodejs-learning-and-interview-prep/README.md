@@ -132,6 +132,14 @@ When interviewing for Node.js roles, keep these three structural principles at t
   * **Stream Backpressure & Safety:** `writable.write()` returning `false` when exceeding `highWaterMark`, `readable.pause()`, flushes triggering `'drain'`, `readable.resume()`. Flaws of `.pipe()` vs `stream.pipeline()`.
   * **Concurrency Boundaries:** `child_process.fork()` multi-process memory isolation & IPC vs `worker_threads` V8 Isolates, `SharedArrayBuffer` & `Atomics`.
 
+### 📅 July 29, 2026
+* **Completed:** Intensive systems quizzing & deep-dive revision on **Chapter 1: Node.js Core Architecture & Event Loop**.
+* **Key Topics Mastered & Verified:**
+  * **V8 JIT Architecture:** Ignition bytecode stored in V8 Heap vs. Turbofan optimized machine code in Code Space; type-feedback polymorphism/megamorphism deoptimization triggers; CPU Instruction Pointer executing Ignition interpreter code vs direct execution of native machine instructions.
+  * **Event Loop Starvation & Microtask Draining:** Immediate microtask queue (`process.nextTick`) draining after call stack clears vs Libuv Check phase (`setImmediate`) execution; recursive `nextTick` blocking phase transitions and starving Poll phase I/O vs `setImmediate` yielding to Poll phase for socket processing.
+  * **Libuv Thread Pool vs. OS Kernel Non-blocking Async I/O:** `http` sockets offloaded to OS kernel primitives (`epoll`/`kqueue`/`IOCP`); `dns.lookup()` using synchronous C `getaddrinfo` offloaded to Libuv Thread Pool (`UV_THREADPOOL_SIZE=4`); thread pool exhaustion mechanics where `dns.lookup()` stalls `fs.readFile()`.
+  * **V8 Shared Context Scope Leaks (Meteor Leak Pattern):** V8 allocating a single shared `Context` object per parent scope; how sibling closures holding `[[Scope]]` pointers to the shared Context prevent garbage collection of unused large variables (`heavyBuffer`).
+
 ---
 
 ## 🧠 Focus Areas & Weakness Analysis
@@ -146,6 +154,7 @@ To achieve senior-level systems engineering mastery, focus on strengthening your
 
 * **Next Steps (Context for Next Session):**
   * **Move to Chapter 2 & Chapter 3 ([02-asynchronous-patterns-streams.md](./02-asynchronous-patterns-streams.md) & [03-concurrency-multiprocessing.md](./03-concurrency-multiprocessing.md)) for deep revision.**
-  * Focus on Streams, `child_process` (`spawn` vs `exec`), `cluster` socket file descriptor passing over IPC, `worker_threads` V8 Isolates, and `SharedArrayBuffer` with `Atomics`.
+  * Focus on Streams, backpressure handling, `child_process` (`spawn` vs `exec`), `cluster` socket file descriptor passing over IPC, `worker_threads` V8 Isolates, and `SharedArrayBuffer` with `Atomics`.
+
 
 
