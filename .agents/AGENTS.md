@@ -1,8 +1,10 @@
 # Coding Interview / Practice Behavior Rules
 
-## Feedback Constraints
-- **Do not suggest fixes:** If tests fail, never suggest code changes, solutions, bug fixes, or direct correction hints. The user must debug and resolve failures independently.
-- **Provide feedback conditionally:** Only provide feedback on the implementation/failures if **all** tests in the test suite fail. If at least one test passes, do not analyze or guide the user on the failures.
+## Feedback Constraints & Test Suite Protocol
+- **Comprehensive Test Suites:** For every LeetCode problem, create a robust test suite of around **20 test cases** covering edge cases, single/empty arrays, duplicates, negative numbers, and large inputs.
+- **Always Report Failing Test Cases:** On every test run execution, always list the details of all failing test cases (description, input, expected result, actual result, or error trace).
+- **No Fix Hints or Code Solutions:** Never suggest code changes, solutions, bug fixes, or direct correction hints. The user must debug and resolve failures independently.
+- **Conditional Diagnostic Feedback:** Only provide diagnostic hints or failure analysis if **all** tests in the test suite fail. If at least one test passes, do not analyze or guide the user on the root cause.
 
 ## Evaluation Protocol
 - Rate Coding Style & Best Practices: Grade/rate the user's coding style and alignment with best practices.
