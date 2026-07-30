@@ -23,7 +23,7 @@ Playlist: [Striver's Arrays Playlist](https://www.youtube.com/playlist?list=PLgU
 | **6. Left Rotate an Array by d Places** | Easy/Medium | Completed (17/17 tests passed) | [left_rotate_d.py](./left_rotate_d.py) |
 | **7. Move Zeros to End** | Easy | Completed (20/20 tests passed) | [move_zeros.py](./move_zeros.py) |
 | **8. Linear Search** | Easy | Completed (7/7 tests passed) | [linear_search.py](./linear_search.py) |
-| **9. Union of Two Sorted Arrays** | Easy/Medium | In Progress (0/7 tests passed) | [union_arrays.py](./union_arrays.py) |
+| **9. Union of Two Sorted Arrays** | Easy/Medium | Completed (20/20 tests passed) | [union_arrays.py](./union_arrays.py) |
 | **10. Intersection of Two Sorted Arrays** | Easy/Medium | Completed (13/13 tests passed) | [intersection_arrays.py](./intersection_arrays.py) |
 
 ---
