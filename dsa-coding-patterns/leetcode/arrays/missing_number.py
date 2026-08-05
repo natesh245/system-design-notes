@@ -1,3 +1,4 @@
+
 def missing_number(nums):
     """
     Problem: Given an array nums containing n distinct numbers in the range [0, n], 
@@ -10,7 +11,15 @@ def missing_number(nums):
     :return: int - the missing number
     """
     # TODO: Implement your solution here
-    pass
+    n = len(nums)
+    range_sum = n*(n+1)//2
+    curr_sum = sum(nums)
+
+    return range_sum - curr_sum
+    
+    
+    
+
 
 
 # --- Test Cases ---

@@ -25,7 +25,7 @@ Playlist: [Striver's Arrays Playlist](https://www.youtube.com/playlist?list=PLgU
 | **8. Linear Search** | Easy | Completed (7/7 tests passed) | [linear_search.py](./linear_search.py) |
 | **9. Union of Two Sorted Arrays** | Easy/Medium | Completed (20/20 tests passed) | [union_arrays.py](./union_arrays.py) |
 | **10. Intersection of Two Sorted Arrays** | Easy/Medium | Completed (13/13 tests passed) | [intersection_arrays.py](./intersection_arrays.py) |
-| **11. Find Missing Number in an Array** | Easy | Pending (0/20 tests passed) | [missing_number.py](./missing_number.py) |
+| **11. Find Missing Number in an Array** | Easy | Completed (20/20 tests passed) | [missing_number.py](./missing_number.py) |
 | **12. Maximum Consecutive Ones** | Easy | Completed (20/20 tests passed) | [max_consecutive_ones.py](./max_consecutive_ones.py) |
 | **13. Find Element that Appears Once** | Easy/Medium | Pending (0/20 tests passed) | [single_number.py](./single_number.py) |
 
