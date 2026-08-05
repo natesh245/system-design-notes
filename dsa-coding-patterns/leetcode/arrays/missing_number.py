@@ -12,10 +12,14 @@ def missing_number(nums):
     """
     # TODO: Implement your solution here
     n = len(nums)
-    range_sum = n*(n+1)//2
-    curr_sum = sum(nums)
+    range_num = [i for i in range(n+1)]
+    num_set = set(nums)
 
-    return range_sum - curr_sum
+    for r in range_num:
+        if r not in num_set:
+            return r
+
+    return 0
     
     
     

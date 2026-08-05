@@ -20,3 +20,7 @@
 - **Dynamic File & Folder Creation:** If a relevant folder/documentation file does not exist for the topic, create a new dedicated folder with structured markdown (`.md`) files and update the main parent `README.md` index to link to the new section.
 - **Periodic Progress Updates:** Always update relevant progress tables, module indices, and status trackers in the relevant markdown (`.md`) files periodically as tasks/problems are completed and at the end of every session.
 
+## Response Formatting Protocol
+- **Clean Markdown Formatting:** Avoid using dollar sign LaTeX syntax (e.g. `$...$` or `$$...$$`). Always use plain Markdown formatting and standard code backticks (e.g., `O(N)`, `O(1)`, `XOR`) for time/space complexity and mathematical expressions to ensure clean UI rendering without unrendered LaTeX symbols.
+
+
