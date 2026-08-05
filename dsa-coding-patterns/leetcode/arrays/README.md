@@ -687,18 +687,18 @@ Result: 4
 
 ##### 1. Brute Force (Linear Search & Count)
 *   **Idea:** For each element in the array, perform a linear search to count how many times it appears. Return the element with a count of 1.
-*   **Time Complexity:** $O(N^2)$
-*   **Space Complexity:** $O(1)$
+*   **Time Complexity:** `O(N^2)`
+*   **Space Complexity:** `O(1)`
 
 ##### 2. Better Approach (Hash Map / Frequency Counter)
 *   **Idea:** Use a hash map (or dictionary) to store the frequency of each element. Iterate through the map to find the element with frequency 1.
-*   **Time Complexity:** $O(N)$
-*   **Space Complexity:** $O(N)$ (to store frequencies).
+*   **Time Complexity:** `O(N)`
+*   **Space Complexity:** `O(N)` (to store frequencies).
 
 ##### 3. Optimal Approach (Bitwise XOR)
-*   **Idea:** XOR all elements together. Since $x \oplus x = 0$, all duplicate pairs will evaluate to 0, leaving only the single element ($x \oplus 0 = x$).
-*   **Time Complexity:** $O(N)$ (single pass traversal).
-*   **Space Complexity:** $O(1)$ (no auxiliary data structure).
+*   **Idea:** XOR all elements together. Since `x ^ x = 0`, all duplicate pairs will evaluate to 0, leaving only the single element (`x ^ 0 = x`).
+*   **Time Complexity:** `O(N)` (single pass traversal).
+*   **Space Complexity:** `O(1)` (no auxiliary data structure).
 
 #### 💻 Implementation (Python)
 *Implement your solution directly in [single_number.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/single_number.py).*
