@@ -19,10 +19,14 @@ def single_number(nums):
     for num in nums:
         counter[num]+=1
     
-    counter_items = counter.items()
-    counter_sorted = sorted(counter_items,key = lambda item: item[1])
+    
+    
+    for key in counter:
+        if counter[key] == 1:
+            return key
 
-    return counter_sorted[0][0]
+
+   
 
 
     
