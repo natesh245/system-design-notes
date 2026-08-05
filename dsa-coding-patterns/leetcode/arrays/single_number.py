@@ -1,3 +1,6 @@
+
+
+from collections import defaultdict
 def single_number(nums):
     """
     Problem: Given a non-empty array of integers nums, every element appears twice except for one element 
@@ -10,7 +13,19 @@ def single_number(nums):
     :return: int - the single element
     """
     # TODO: Implement your solution here
-    pass
+    counter = defaultdict(int)
+
+
+    for num in nums:
+        counter[num]+=1
+    
+    counter_items = counter.items()
+    counter_sorted = sorted(counter_items,key = lambda item: item[1])
+
+    return counter_sorted[0][0]
+
+
+    
 
 
 # --- Test Cases ---
@@ -32,7 +47,7 @@ def run_tests():
         {"nums": [0, 0, 5], "expected": 5, "description": "Pair of zeros and single positive integer"},
         {"nums": [-5, -10, -5], "expected": -10, "description": "Negative numbers pair with single negative integer"},
         {"nums": [1, 2, 3, 2, 1], "expected": 3, "description": "Palindromic pair structure with single element at center"},
-        {"nums": [42, 1, 2, 3, 4, 3, 2, 1, 42, 99, 100, 100, 99, 7], "expected": 7, "description": "Multiple nested pairs with single element at end"},
+        {"nums": [42, 1, 2, 3, 4, 4, 3, 2, 1, 42, 99, 100, 100, 99, 7], "expected": 7, "description": "Multiple nested pairs with single element at end"},
         {"nums": [-1], "expected": -1, "description": "Single element array with -1"},
         {"nums": [0], "expected": 0, "description": "Single element array with 0"},
         {"nums": [12345, 67890, 12345], "expected": 67890, "description": "Scattered distinct large numbers"},
