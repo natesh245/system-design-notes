@@ -25,6 +25,9 @@ Playlist: [Striver's Arrays Playlist](https://www.youtube.com/playlist?list=PLgU
 | **8. Linear Search** | Easy | Completed (7/7 tests passed) | [linear_search.py](./linear_search.py) |
 | **9. Union of Two Sorted Arrays** | Easy/Medium | Completed (20/20 tests passed) | [union_arrays.py](./union_arrays.py) |
 | **10. Intersection of Two Sorted Arrays** | Easy/Medium | Completed (13/13 tests passed) | [intersection_arrays.py](./intersection_arrays.py) |
+| **11. Find Missing Number in an Array** | Easy | Pending (0/20 tests passed) | [missing_number.py](./missing_number.py) |
+| **12. Maximum Consecutive Ones** | Easy | Completed (20/20 tests passed) | [max_consecutive_ones.py](./max_consecutive_ones.py) |
+| **13. Find Element that Appears Once** | Easy/Medium | Pending (0/20 tests passed) | [single_number.py](./single_number.py) |
 
 ---
 
@@ -562,6 +565,144 @@ Result: [ 2, 2, 3 ]
 
 #### 💻 Implementation (Python)
 *Implement your solution directly in [intersection_arrays.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/intersection_arrays.py).*
+
+---
+
+### 11. Find Missing Number in an Array
+*   **Problem Link:** [TakeUForward - Find Missing Number](https://takeuforward.org/plus/dsa/arrays/faqs-easy/find-missing-number-in-an-array)
+*   **Implementation:** [missing_number.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/missing_number.py)
+*   **Difficulty:** Easy
+
+#### 💡 Problem Statement
+Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, return the only number in the range that is missing from the array.
+
+#### 📐 ASCII Visualization (Sum & XOR Approaches)
+Assume `nums = [3, 0, 1]` (`n = 3`).
+
+```text
+Expected range: 0 to 3 => [0, 1, 2, 3]
+
+Sum Approach:
+Expected Sum = n * (n + 1) // 2 = 3 * 4 // 2 = 6
+Actual Sum   = 3 + 0 + 1 = 4
+Missing      = Expected Sum - Actual Sum = 6 - 4 = 2
+
+XOR Approach:
+XOR of range 0..3:   0 ^ 1 ^ 2 ^ 3 = 0
+XOR of nums elements: 3 ^ 0 ^ 1 = 2
+(0 ^ 1 ^ 2 ^ 3) ^ (3 ^ 0 ^ 1) = (0^0) ^ (1^1) ^ 2 ^ (3^3) = 2
+Result: 2
+```
+
+#### ⚙️ Approaches & Complexity
+
+##### 1. Brute Force (Linear Search)
+*   **Idea:** For every number $i$ from $0$ to $n$, search if $i$ exists in `nums`.
+*   **Time Complexity:** $O(N^2)$
+*   **Space Complexity:** $O(1)$
+
+##### 2. Better Approach (Hash Array / Frequency Map)
+*   **Idea:** Use a hash array or set of size $n+1$ to store frequencies of elements. Traverse from $0$ to $n$ to find the element with frequency 0.
+*   **Time Complexity:** $O(N)$
+*   **Space Complexity:** $O(N)$
+
+##### 3. Optimal Approach 1 (Sum Formula)
+*   **Idea:** Calculate sum of first $n$ natural numbers using $S = \frac{n(n+1)}{2}$. Subtract the array sum from $S$.
+*   **Time Complexity:** $O(N)$
+*   **Space Complexity:** $O(1)$
+
+##### 4. Optimal Approach 2 (XOR Operator)
+*   **Idea:** Compute $\text{xor1} = 0 \oplus 1 \oplus 2 \dots \oplus n$ and $\text{xor2} = \text{nums}[0] \oplus \text{nums}[1] \dots \oplus \text{nums}[n-1]$. The missing number is $\text{xor1} \oplus \text{xor2}$. Avoids integer overflow issues present in fixed-precision languages.
+*   **Time Complexity:** $O(N)$
+*   **Space Complexity:** $O(1)$
+
+#### 💻 Implementation (Python)
+*Implement your solution directly in [missing_number.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/missing_number.py).*
+
+---
+
+### 12. Maximum Consecutive Ones
+*   **Problem Link:** [TakeUForward - Max Consecutive Ones](https://takeuforward.org/plus/dsa/arrays/faqs-easy/maximum-consecutive-ones)
+*   **Implementation:** [max_consecutive_ones.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/max_consecutive_ones.py)
+*   **Difficulty:** Easy
+
+#### 💡 Problem Statement
+Given a binary array `nums`, return the maximum number of consecutive `1`s in the array.
+
+#### 📐 ASCII Visualization (Single Pass Scan)
+Assume `nums = [1, 1, 0, 1, 1, 1]`.
+
+```text
+Initialize cnt = 0, max_cnt = 0
+
+idx 0: val=1 => cnt = 1, max_cnt = max(0, 1) = 1
+idx 1: val=1 => cnt = 2, max_cnt = max(1, 2) = 2
+idx 2: val=0 => cnt = 0 (reset)
+idx 3: val=1 => cnt = 1, max_cnt = max(2, 1) = 2
+idx 4: val=1 => cnt = 2, max_cnt = max(2, 2) = 2
+idx 5: val=1 => cnt = 3, max_cnt = max(2, 3) = 3
+
+Result: 3
+```
+
+#### ⚙️ Approaches & Complexity
+
+##### 1. Optimal Approach (Single Pass Iteration)
+*   **Idea:** Maintain a running count `cnt` of consecutive 1s and a global `max_cnt`. When encountering a 1, increment `cnt` and update `max_cnt`. When encountering a 0, reset `cnt = 0`.
+*   **Time Complexity:** $O(N)$ (single pass traversal).
+*   **Space Complexity:** $O(1)$ (only counter variables required).
+
+#### 💻 Implementation (Python)
+*Implement your solution directly in [max_consecutive_ones.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/max_consecutive_ones.py).*
+
+---
+
+### 13. Find Element that Appears Once
+*   **Problem Link:** [TakeUForward - Find Number Appears Once](https://takeuforward.org/plus/dsa/arrays/faqs-easy/find-the-number-that-appears-once-and-other-numbers-twice)
+*   **Implementation:** [single_number.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/single_number.py)
+*   **Difficulty:** Easy/Medium
+
+#### 💡 Problem Statement
+Given a non-empty array of integers `nums`, every element appears twice except for one element which appears exactly once. Find that single element.
+
+#### 📐 ASCII Visualization (XOR Cancellation)
+Assume `nums = [4, 1, 2, 1, 2]`.
+
+```text
+XOR Properties:
+1. x ^ x = 0 (Same numbers cancel each other out)
+2. x ^ 0 = x (Identity element)
+3. XOR is Commutative and Associative: A ^ B ^ C = A ^ C ^ B
+
+Compute XOR of all elements:
+  4 ^ 1 ^ 2 ^ 1 ^ 2
+= 4 ^ (1 ^ 1) ^ (2 ^ 2)
+= 4 ^ 0 ^ 0
+= 4
+
+Result: 4
+```
+
+#### ⚙️ Approaches & Complexity
+
+##### 1. Brute Force (Linear Search & Count)
+*   **Idea:** For each element in the array, perform a linear search to count how many times it appears. Return the element with a count of 1.
+*   **Time Complexity:** $O(N^2)$
+*   **Space Complexity:** $O(1)$
+
+##### 2. Better Approach (Hash Map / Frequency Counter)
+*   **Idea:** Use a hash map (or dictionary) to store the frequency of each element. Iterate through the map to find the element with frequency 1.
+*   **Time Complexity:** $O(N)$
+*   **Space Complexity:** $O(N)$ (to store frequencies).
+
+##### 3. Optimal Approach (Bitwise XOR)
+*   **Idea:** XOR all elements together. Since $x \oplus x = 0$, all duplicate pairs will evaluate to 0, leaving only the single element ($x \oplus 0 = x$).
+*   **Time Complexity:** $O(N)$ (single pass traversal).
+*   **Space Complexity:** $O(1)$ (no auxiliary data structure).
+
+#### 💻 Implementation (Python)
+*Implement your solution directly in [single_number.py](file:///Users/natesh/projects/system-design/dsa-coding-patterns/leetcode/arrays/single_number.py).*
+
 
 
 
